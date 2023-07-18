@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:intern_dart_project/exercise_1.dart';
 import 'package:intern_dart_project/game_exercises.dart';
 import 'package:intern_dart_project/unit_test_exercises.dart';
+import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
 void executeOption(int option) {
@@ -110,15 +111,76 @@ void executeOption(int option) {
             }
           } catch(e) {
             print('Invalid input.\nPlease input again.');
+            tryCounts--;
           }
         }
       } while(!result && yourChoice != 'exit');
       break;
     }
     case 8: {
+      var result = false;
+      var attempts = 0;
+      String? yourChoice;
+      final random4DigitsNumber = Random().nextInt(10000) + 1000;
+      final random4DigitsNumberString = random4DigitsNumber.toString().split('');
+      do {
+        attempts++;
+        print('\n\nWelcome to Cows and Bulls\nType "exit" to stop the game');
+        stdout.write("Please choose a four digits number: ");
+        yourChoice = stdin.readLineSync();
+        if (yourChoice != 'exit') {
+          try {
+            final userChoice = int.parse(yourChoice!);
+            final cowsAndBullsResult = playCowsAndBullsGame(
+              random4DigitsNumberString, userChoice.toString().split(''),
+            );
+            if (cowsAndBullsResult[0] == random4DigitsNumberString.length) {
+              print('Congratulations! You tried $attempts times');
+              result = true;
+            } else {
+              print('Incorrect number. Make sure to give 4 digit number');
+              print('Attempts: $attempts \nCows: ${cowsAndBullsResult[0]}, Bulls: ${cowsAndBullsResult[1]}');
+            }
+          } catch(e) {
+            print('Invalid input.\nPlease input again.');
+            attempts--;
+          }
+        }
+      } while(!result && yourChoice != 'exit');
       break;
     }
     case 9: {
+      final word = 'GOLDENOWL';
+      final length = word.length;
+      final wordsList = word.split('');
+      final wordsMap = wordToWordsMap(word);
+      final userAnswer = List<String>.generate(length, (index) => '_');
+      String? currentChoice = '';
+      var result = false;
+      do {
+        print('\n${userAnswer.join(' ')}');
+        stdout.write('Please guess a letter: ');
+        currentChoice = stdin.readLineSync();
+        if (currentChoice == null || characterIsFromAtoZ(currentChoice) == false) {
+          print('Invalid input.\nPlease input again.');
+        } else {
+          final trueChoice = currentChoice.toUpperCase();
+          final listIndexes = wordsMap[trueChoice] ?? [];
+          final listIndexesLength = listIndexes.length;
+          if (listIndexesLength == 0) {
+            print('No $trueChoice in the word');
+          } else {
+            print('There are $listIndexesLength $trueChoice in the word');
+            for (var j = 0; j < listIndexesLength; j++) {
+              userAnswer[listIndexes[j]] = trueChoice;
+            }
+          }
+        }
+        result = ListEquality().equals(wordsList, userAnswer);
+        if (result) {
+          print('Congratulations! You guessed the word: $word');
+        }
+      } while(!result);
       break;
     }
   }
