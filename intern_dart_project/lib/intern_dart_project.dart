@@ -1,58 +1,69 @@
 // exercise 1
+import 'dart:io';
 import 'dart:math';
 
-void printSquare(int squareSize){
-  String horizontalLine = " ---" * squareSize;
-  String verticalLine = '|   ' * (squareSize + 1);
-  for(int i = 0; i < squareSize; i++){
-    print(horizontalLine);
-    print(verticalLine);
-  }
-  print(horizontalLine);
-}
+import 'package:intern_dart_project/exercise_1.dart';
+import 'package:intern_dart_project/unit_test_exercises.dart';
+import 'package:test/test.dart';
 
-// unit test 1
-List<int> findDivisorOf(int number) {
-  List<int> result = [1];
-  for(int i = 2; i <= number/2; i++){
-    if(number % i == 0){
-      result.add(i);
+void executeOption(int option) {
+  switch(option) {
+    case 0: {
+      print('Goodbye');
+      break;
+    }
+    case 1: {
+      stdout.write("Enter square size (must > 0): ");
+      final squareSize = int.parse(stdin.readLineSync() ?? '0');
+      printSquare(max(0, squareSize));
+      break;
+    }
+    case 2: {
+      stdout.write("Enter an integer: ");
+      final integer = int.parse(stdin.readLineSync() ?? '0');
+      // print('divisor of $integer: ${intern_dart_project.findDivisorOf(integer)}');
+      runUniTestCases(
+        1,
+        [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 25, 30, 50, 60, 75, 100, 150, 300],
+        findDivisorOf(integer),
+      );
+      break;
+    }
+    case 3: {
+      final list1 = [1, 1, 2, 3, 5, 8, 89, 13, 21, 34, 55];
+      final list2 = [1, 2, 3, 4, 5, 6, 10, 7, 8, 9, 11, 12, 13];
+      // for (var i = 0; i < 10; i++) {
+      //   list1.add(-1000 + random.nextInt(4080));
+      //   list2.add(-777 + random.nextInt(500));
+      // }
+      runUniTestCases(2, [1, 2, 3, 5, 8, 13], findCommonElements(list1, list2));
+      break;
+    }
+    case 4: {
+      stdout.write("Enter an positive integer: ");
+      final integer = int.parse(stdin.readLineSync() ?? '0');
+      stdout.write("Do you think your number is prime (y/n): ");
+      final resultExpected = stdin.readLineSync() != 'y' ? false : true;
+
+      runUniTestCases(3, resultExpected, checkPrimeNumber(integer));
+      break;
+    }
+    case 5: {
+      stdout.write("Enter your password: ");
+      final password = stdin.readLineSync() ?? '';
+      print('Your password is $password');
+      runUniTestCases(4, true, checkPassword(password));
+      break;
     }
   }
-  result.add(number);
-  return result;
 }
 
-// unit test 2
-List<int> findCommonElements(List<int> list1, List<int> list2){
-  List<int> result = [];
-  for(int i = 0; i < list1.length; i++){
-    if(list2.contains(list1[i]) && !result.contains(list1[i])){
-      result.add(list1[i]);
-    }
+void runUniTestCases(int testIndex, expectedValue, trueValue) {
+  try {
+    test('testForUnitTest$testIndex', () {
+      expect(expectedValue, trueValue);
+    });
+  } catch(e) {
+    print(e);
   }
-  return result;
-}
-
-// unit test 3
-bool checkPrimeNumber(int number){
-  if(number < 2){
-    return false;
-  }
-
-  if (number == 2) {
-    return true;
-  }
-
-  for(int i = 2; i <= sqrt(number); i++){
-    if(number % i == 0){
-      return false;
-    }
-  }
-  return true;
-}
-
-RegExp passwordRegex() {
-  // write regex with at least 6 characters and has at least 1 number, 1 letter and 1 special character
-  return RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$');
 }
