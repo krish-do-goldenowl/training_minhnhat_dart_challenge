@@ -57,17 +57,17 @@ void executeOption(int option) {
       break;
     }
     case 6: {
-      var yourChoice = '';
+      String? yourChoice;
       var score = 0;
       do {
         print('\n\nWelcome to Rock, Paper, Scissors. \nType "exit" to stop the game');
         stdout.write("Please choose Rock(0), Paper(1) or Scissors(2): ");
-        yourChoice = stdin.readLineSync() ?? '0';
+        yourChoice = stdin.readLineSync();
         if (yourChoice == 'exit') {
           print('Your score is $score');
         } else {
           try {
-            final userChoice = int.parse(yourChoice);
+            final userChoice = int.parse(yourChoice!);
             final realChoice = userChoice < 0 ? 0 : (userChoice > 2 ? 2 : userChoice);
             final matchResult = playRockPaperScissorsGame(realChoice);
             print('Your choice is $realChoice');
@@ -82,11 +82,43 @@ void executeOption(int option) {
             print('Score ${matchResult[1] >= 0 ? '+' : ''}${matchResult[1]}');
             score += matchResult[1];
           } catch(e) {
-            yourChoice = 'exit';
-            print('Your score is $score');
+            print('Invalid input.\nPlease input again.');
           }
         }
       } while(yourChoice != 'exit');
+      break;
+    }
+    case 7: {
+      var result = false, tryCounts = 0;
+      String? yourChoice;
+      final randomNumber = Random().nextInt(101);
+      do {
+        tryCounts++;
+        print('\n\nType exit to quit the game');
+        stdout.write("Please choose a number between 0 and 100: ");
+        yourChoice = stdin.readLineSync();
+        if (yourChoice != 'exit') {
+          try {
+            final userChoice = int.parse(yourChoice!);
+            if (userChoice < randomNumber) {
+              print('You are lower');
+            } else if (userChoice > randomNumber) {
+              print('You are higher');
+            } else {
+              result = true;
+              print('Bingo! You tried $tryCounts times\n');
+            }
+          } catch(e) {
+            print('Invalid input.\nPlease input again.');
+          }
+        }
+      } while(!result && yourChoice != 'exit');
+      break;
+    }
+    case 8: {
+      break;
+    }
+    case 9: {
       break;
     }
   }

@@ -1,7 +1,8 @@
 import 'dart:math';
 
+final random = Random();
 List<int> playRockPaperScissorsGame(int userChoice) {
-  int randomChoice = Random().nextInt(3);
+  int randomChoice = random.nextInt(3);
   final listReturn = [randomChoice];
 
   if (userChoice == randomChoice) {
