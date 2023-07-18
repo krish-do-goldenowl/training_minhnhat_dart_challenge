@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:intern_dart_project/exercise_1.dart';
+import 'package:intern_dart_project/game_exercises.dart';
 import 'package:intern_dart_project/unit_test_exercises.dart';
 import 'package:test/test.dart';
 
@@ -53,6 +54,39 @@ void executeOption(int option) {
       final password = stdin.readLineSync() ?? '';
       print('Your password is $password');
       runUniTestCases(4, true, checkPassword(password));
+      break;
+    }
+    case 6: {
+      var yourChoice = '';
+      var score = 0;
+      do {
+        print('\n\nWelcome to Rock, Paper, Scissors. \nType "exit" to stop the game');
+        stdout.write("Please choose Rock(0), Paper(1) or Scissors(2): ");
+        yourChoice = stdin.readLineSync() ?? '0';
+        if (yourChoice == 'exit') {
+          print('Your score is $score');
+        } else {
+          try {
+            final userChoice = int.parse(yourChoice);
+            final realChoice = userChoice < 0 ? 0 : (userChoice > 2 ? 2 : userChoice);
+            final matchResult = playRockPaperScissorsGame(realChoice);
+            print('Your choice is $realChoice');
+            print('Computer choice is ${matchResult[0]}');
+            if (matchResult[1] == 0) {
+              print('Match draw');
+            } else if (matchResult[1] == 1) {
+              print('Match win');
+            } else {
+              print('Match lose');
+            }
+            print('Score ${matchResult[1] >= 0 ? '+' : ''}${matchResult[1]}');
+            score += matchResult[1];
+          } catch(e) {
+            yourChoice = 'exit';
+            print('Your score is $score');
+          }
+        }
+      } while(yourChoice != 'exit');
       break;
     }
   }
