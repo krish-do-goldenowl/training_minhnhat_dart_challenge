@@ -1,26 +1,9 @@
-import 'package:english_words/english_words.dart';
+import 'package:first_flutter_app/bloc/app_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FavoritePage extends StatefulWidget {
-  const FavoritePage({
-    super.key, required this.favorites, required this.onFavoriteToggled,
-  });
-
-  final List<WordPair> favorites;
-  final Function(WordPair) onFavoriteToggled;
-
-  @override
-  State<FavoritePage> createState() => _FavoritePageState();
-}
-
-class _FavoritePageState extends State<FavoritePage> {
-  final currentFavorites = <WordPair>[];
-
-  @override
-  void initState() {
-    super.initState();
-    currentFavorites.addAll(widget.favorites);
-  }
+class FavoritePage extends StatelessWidget {
+  const FavoritePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,61 +14,65 @@ class _FavoritePageState extends State<FavoritePage> {
         backgroundColor: theme.colorScheme.primaryContainer,
         title: const Text('Favorites'),
       ),
-      body: currentFavorites.isEmpty
-          ? const Center(
-        child: Text('No favorites yet'),
-      )
-          :Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(30),
-            child: Text(
-              'You have ${currentFavorites.length} favorites',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              )
-            ),
-          ),
+      body: BlocBuilder<AppCubit, AppState>(
+        buildWhen: (previous, current) => previous.favorites != current.favorites,
+        builder: (context, state) {
+          if (state.favorites.isEmpty) {
+            return const Center(
+              child: Text('No favorites yet'),
+            );
+          }
 
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.sizeOf(context).width * 0.1,
-              ),
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 400,
-                  childAspectRatio: 400 / 80,
-                ),
-                itemCount: currentFavorites.length,
-                itemBuilder: (context, index) {
-                  final pair = currentFavorites[index];
-                  return ListTile(
-                    leading: IconButton(
-                      icon: const Icon(
-                        Icons.delete_outline,
-                        semanticLabel: 'Delete',
-                      ),
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(30),
+                child: Text(
+                    'You have ${state.favorites.length} favorites',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                       color: theme.colorScheme.primary,
-                      onPressed: () {
-                        widget.onFavoriteToggled(pair);
-                        setState(() {
-                          currentFavorites.remove(pair);
-                        });
-                      },
-                    ),
-                    title: Text(
-                      pair.asLowerCase,
-                      semanticsLabel: pair.asPascalCase,
-                    ),
-                  );
-                },
+                    )
+                ),
               ),
-            ),
-          ),
-        ],
+
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.sizeOf(context).width * 0.1,
+                  ),
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 400,
+                      childAspectRatio: 400 / 80,
+                    ),
+                    itemCount: state.favorites.length,
+                    itemBuilder: (context, index) {
+                      final pair = state.favorites[index];
+                      return ListTile(
+                        leading: IconButton(
+                          icon: const Icon(
+                            Icons.delete_outline,
+                            semanticLabel: 'Delete',
+                          ),
+                          color: theme.colorScheme.primary,
+                          onPressed: () {
+                            context.read<AppCubit>().toggleFavorite(pair);
+                          },
+                        ),
+                        title: Text(
+                          pair.asLowerCase,
+                          semanticsLabel: pair.asPascalCase,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
