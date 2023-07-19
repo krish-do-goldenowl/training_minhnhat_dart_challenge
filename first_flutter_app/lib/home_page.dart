@@ -1,4 +1,5 @@
 import 'package:english_words/english_words.dart';
+import 'package:first_flutter_app/favorite_page.dart';
 import 'package:first_flutter_app/home_widgets/word_gen_view.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onFavoriteTabTapped() {
-    print('Favorite tab tapped');
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => FavoritePage(
+          favorites: favorites,
+          onFavoriteToggled: (togglePair) {
+            toggleFavorite(togglePair);
+          },
+        ),
+      ),
+    );
   }
 
   @override
