@@ -18,13 +18,20 @@ const listText = [
 void main() {
   var yourChoice = 0;
   print('Welcome to dart challenge project');
-  print('These are options for you to choose:');
-  for (var i = 0; i < listText.length; i++) {
-    print(listText[i]);
-  }
-  stdout.write("Your choice: ");
-  yourChoice = int.parse(stdin.readLineSync() ?? '0');
-  print('Your choice is ${listText[yourChoice]}');
+  do {
+    print('\nThese are options for you to choose:');
+    for (var i = 0; i < listText.length; i++) {
+      print(listText[i]);
+    }
+    stdout.write("Your choice: ");
+    try {
+      yourChoice = int.parse(stdin.readLineSync() ?? '0');
+      print('Your choice is ${listText[yourChoice]}');
 
-  intern_dart_project.executeOption(yourChoice);
+      intern_dart_project.executeOption(yourChoice);
+    } catch (e) {
+      print('Your choice is not valid. Please choose again');
+      yourChoice = -1;
+    }
+  } while (yourChoice != 0);
 }

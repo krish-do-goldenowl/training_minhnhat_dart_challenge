@@ -6,7 +6,6 @@ import 'package:intern_dart_project/exercise_1.dart';
 import 'package:intern_dart_project/game_exercises.dart';
 import 'package:intern_dart_project/unit_test_exercises.dart';
 import 'package:collection/collection.dart';
-import 'package:test/test.dart';
 
 void executeOption(int option) {
   switch(option) {
@@ -23,38 +22,28 @@ void executeOption(int option) {
     case 2: {
       stdout.write("Enter an integer: ");
       final integer = int.parse(stdin.readLineSync() ?? '0');
-      // print('divisor of $integer: ${intern_dart_project.findDivisorOf(integer)}');
-      runUniTestCases(
-        1,
-        [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 25, 30, 50, 60, 75, 100, 150, 300],
-        findDivisorOf(integer),
-      );
+      print('Divisor of $integer: ${findDivisorOf(integer)}');
       break;
     }
     case 3: {
       final list1 = [1, 1, 2, 3, 5, 8, 89, 13, 21, 34, 55];
       final list2 = [1, 2, 3, 4, 5, 6, 10, 7, 8, 9, 11, 12, 13];
-      // for (var i = 0; i < 10; i++) {
-      //   list1.add(-1000 + random.nextInt(4080));
-      //   list2.add(-777 + random.nextInt(500));
-      // }
-      runUniTestCases(2, [1, 2, 3, 5, 8, 13], findCommonElements(list1, list2));
+      print('list1: $list1');
+      print('list2: $list2');
+      print('common elements: ${findCommonElements(list1, list2)}');
       break;
     }
     case 4: {
       stdout.write("Enter an positive integer: ");
       final integer = int.parse(stdin.readLineSync() ?? '0');
       stdout.write("Do you think your number is prime (y/n): ");
-      final resultExpected = stdin.readLineSync() != 'y' ? false : true;
-
-      runUniTestCases(3, resultExpected, checkPrimeNumber(integer));
+      print('Your number is ${checkPrimeNumber(integer) ? '' : 'not '}prime');
       break;
     }
     case 5: {
       stdout.write("Enter your password: ");
       final password = stdin.readLineSync() ?? '';
-      print('Your password is $password');
-      runUniTestCases(4, true, checkPassword(password));
+      print('Your password is $password and it is ${checkPassword(password) ? '' : 'not '}valid');
       break;
     }
     case 6: {
@@ -123,6 +112,7 @@ void executeOption(int option) {
       String? yourChoice;
       final random4DigitsNumber = Random().nextInt(10000) + 1000;
       final random4DigitsNumberString = random4DigitsNumber.toString().split('');
+      print('Random number: $random4DigitsNumberString');
       do {
         attempts++;
         print('\n\nWelcome to Cows and Bulls\nType "exit" to stop the game');
@@ -183,15 +173,5 @@ void executeOption(int option) {
       } while(!result);
       break;
     }
-  }
-}
-
-void runUniTestCases(int testIndex, expectedValue, trueValue) {
-  try {
-    test('testForUnitTest$testIndex', () {
-      expect(expectedValue, trueValue);
-    });
-  } catch(e) {
-    print(e);
   }
 }
