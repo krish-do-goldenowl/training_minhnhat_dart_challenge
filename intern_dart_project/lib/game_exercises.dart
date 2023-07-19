@@ -1,7 +1,9 @@
 import 'dart:math';
 
+// game 1
+final random = Random();
 List<int> playRockPaperScissorsGame(int userChoice) {
-  int randomChoice = Random().nextInt(3);
+  int randomChoice = random.nextInt(3);
   final listReturn = [randomChoice];
 
   if (userChoice == randomChoice) {
@@ -23,4 +25,43 @@ List<int> playRockPaperScissorsGame(int userChoice) {
   }
 
   return listReturn;
+}
+
+// game 3
+List<int> playCowsAndBullsGame(List<String> expectedNumberStrings, List<String> trueNumberStrings) {
+  final result = <int>[0, 0];
+  final length = trueNumberStrings.length;
+
+  for (var i = 0; i < length; i++) {
+    final currentNumber = trueNumberStrings[i];
+    if (expectedNumberStrings.contains(currentNumber)) {
+      if (expectedNumberStrings[i] == currentNumber) {
+        result[0]++;
+      } else {
+        result[1]++;
+      }
+    }
+  }
+
+  return result;
+}
+
+// game 4
+Map<String, List<int>> wordToWordsMap(String word) {
+  final length = word.length;
+  final wordsMap = <String, List<int>>{};
+  for (var i = 0; i < length; i++) {
+    if (wordsMap[word[i]] == null) {
+      wordsMap[word[i]] = [i];
+    } else {
+      wordsMap[word[i]]!.add(i);
+    }
+  }
+  return wordsMap;
+}
+bool characterIsFromAtoZ(String character) {
+  final codeA = 'A'.codeUnitAt(0);
+  final codeZ = 'Z'.codeUnitAt(0);
+  final codeCharacter = character.toUpperCase().codeUnitAt(0);
+  return codeCharacter >= codeA && codeCharacter <= codeZ;
 }
