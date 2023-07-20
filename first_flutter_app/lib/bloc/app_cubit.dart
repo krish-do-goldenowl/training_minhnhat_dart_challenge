@@ -1,5 +1,5 @@
 import 'package:english_words/english_words.dart';
-import 'package:flutter/foundation.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,9 +10,9 @@ class AppCubit extends Cubit<AppState> {
 
   final historyListKey = GlobalKey<AnimatedListState>();
 
-  void emitState(AppState state) {
+  void emitState(AppState newState) {
     if (!isClosed) {
-      emit(state.copyWith());
+      emit(newState);
     }
   }
 

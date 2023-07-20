@@ -1,7 +1,7 @@
 part of 'app_cubit.dart';
 
 @immutable
-class AppState {
+class AppState extends Equatable {
   const AppState({
     this.currentPair,
     this.favorites = const <WordPair>[],
@@ -13,17 +13,11 @@ class AppState {
   final List<WordPair> history;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-          other is AppState &&
-              runtimeType == other.runtimeType &&
-              currentPair == other.currentPair &&
-              listEquals(favorites, other.favorites) &&
-              listEquals(history, other.history);
-
-  @override
-  int get hashCode =>
-      currentPair.hashCode ^ favorites.hashCode ^ history.hashCode;
+  List<Object?> get props => [
+    currentPair,
+    favorites,
+    history,
+  ];
 
   AppState copyWith({
     WordPair? currentPair,
