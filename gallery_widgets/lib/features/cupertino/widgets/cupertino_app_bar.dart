@@ -19,16 +19,28 @@ class CupertinoAppBar extends StatelessWidget implements PreferredSizeWidget {
               width: 0.0, // 0.0 means one physical pixel
             ),
           ),
-          leading: Transform.scale(
-            scaleY: 1.2,
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+          leading: Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Icon(CupertinoIcons.left_chevron),
               ),
-            ),
+              Expanded(
+                child: Transform.scale(
+                  scaleY: 1.2,
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

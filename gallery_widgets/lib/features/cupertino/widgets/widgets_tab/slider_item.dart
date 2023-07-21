@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class SliderItem extends StatefulWidget {
   const SliderItem({super.key});
