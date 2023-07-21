@@ -21,7 +21,7 @@ class HistoryWordsViewed extends StatefulWidget {
 
 class _HistoryWordsViewedState extends State<HistoryWordsViewed> {
   /// Used to "fade out" the history items at the top, to suggest continuation.
-  static const Gradient _maskingGradient = LinearGradient(
+  final Gradient _maskingGradient = const LinearGradient(
     // This gradient goes from fully transparent to fully opaque black...
     colors: [Colors.transparent, Colors.black],
     // ... from the top (transparent) to half (0.5) of the way to the bottom.
