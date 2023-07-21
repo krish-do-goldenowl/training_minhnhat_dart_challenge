@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CupertinoAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CupertinoAppBar({super.key, required this.title});
@@ -19,13 +20,11 @@ class CupertinoAppBar extends StatelessWidget implements PreferredSizeWidget {
               width: 0.0, // 0.0 means one physical pixel
             ),
           ),
+          padding: const EdgeInsetsDirectional.symmetric(horizontal: 0),
           leading: Row(
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Icon(CupertinoIcons.left_chevron),
+              const CupertinoNavigationBarBackButton(
+                color: Colors.black,
               ),
               Expanded(
                 child: Transform.scale(
