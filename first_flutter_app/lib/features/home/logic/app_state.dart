@@ -14,10 +14,10 @@ class AppState extends Equatable {
 
   @override
   List<Object?> get props => [
-    currentPair,
-    favorites,
-    history,
-  ];
+        currentPair,
+        favorites,
+        history,
+      ];
 
   AppState copyWith({
     WordPair? currentPair,
