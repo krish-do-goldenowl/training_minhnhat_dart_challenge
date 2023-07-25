@@ -73,4 +73,10 @@ const listWidgetsData = [
     desRoute: RouteNames.stackAndAlign,
     icon: Icons.copy_outlined,
   ),
+  GalleryItemModel(
+    title: 'Custom shape',
+    subtitle: 'A ticket widget with custom shape',
+    desRoute: RouteNames.customShape,
+    icon: Icons.auto_awesome_outlined,
+  ),
 ];

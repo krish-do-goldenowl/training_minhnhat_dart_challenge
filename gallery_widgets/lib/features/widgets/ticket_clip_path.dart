@@ -65,7 +65,7 @@ class TicketClipper extends CustomClipper<Path> {
         final xDashRenderSpace =
             size.width - xClipDashSpace * 2 - xClipRadius * 2;
         final xDashCount =
-            (xDashRenderSpace / (xDashWidth + xDashSpace)).floor();
+            (xDashRenderSpace + xDashSpace) ~/ (xDashWidth + xDashSpace);
         final xDashRenderLeft = xClipDashSpace + xClipRadius;
         final xDashTop = xCenter - xDashHeight / 2;
 
@@ -110,9 +110,9 @@ class TicketClipper extends CustomClipper<Path> {
         // * calculate the space to render dashes, the number of dashes, the first dash left position
         // * and the top position of dashes
         final yDashRenderSpace =
-            size.height - yClipDashSpace * 2 - yClipRadius * 2;
+            size.height - (yClipDashSpace * 2) - (yClipRadius * 2);
         final yDashCount =
-            (yDashRenderSpace / (yDashWidth + yDashSpace)).floor();
+            (yDashRenderSpace + yDashSpace) ~/ (yDashHeight + yDashSpace);
         final yDashRenderTop = yClipDashSpace + yClipRadius;
         final yDashLeft = yCenter - yDashWidth / 2;
 
@@ -121,7 +121,7 @@ class TicketClipper extends CustomClipper<Path> {
           clipPath.addRRect(RRect.fromRectAndRadius(
             Rect.fromLTWH(
               yDashLeft,
-              i * (yDashWidth + yDashSpace).toDouble() + yDashRenderTop,
+              i * (yDashHeight + yDashSpace).toDouble() + yDashRenderTop,
               yDashWidth,
               yDashHeight,
             ),
