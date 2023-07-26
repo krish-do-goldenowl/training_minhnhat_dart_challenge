@@ -13,47 +13,49 @@ class CustomShapeView extends StatelessWidget {
         title: const Text('Custom Shape'),
       ),
       body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 30.0,
-          ),
-          child: Center(
-            child: Container(
-              height: 107.0,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10.0,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30.0,
+        ),
+        child: Center(
+          child: Container(
+            height: 107.0,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  blurRadius: 10.0,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: ClipPath(
+              clipper: const TicketClipper(
+                borderRadius: 10,
+                yClipperStart: 80,
+                yClipRadius: 8,
+                yClipDashSpace: 5.0,
+                yDashHeight: 4.0,
+                yDashSpace: 3.0,
+                yDashWidth: 1.0,
               ),
-              child: ClipPath(
-                clipper: const TicketClipper(
-                    borderRadius: 10,
-                    yClipperStart: 80,
-                    yClipRadius: 8,
-                    yClipDashSpace: 5.0,
-                    yDashHeight: 4.0,
-                    yDashSpace: 3.0,
-                    yDashWidth: 1.0),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10.0,
-                  ),
-                  color: Colors.white,
-                  child: const Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DiscountValue(),
-                      SizedBox(width: 30),
-                      Expanded(child: DiscountDescribe()),
-                    ],
-                  ),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                color: Colors.white,
+                child: const Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DiscountValue(),
+                    SizedBox(width: 30),
+                    Expanded(child: DiscountDescribe()),
+                  ],
                 ),
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -35,9 +35,10 @@ class DiscountDescribe extends StatelessWidget {
               Text(
                 'Kết thúc: 31/12/2021',
                 style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
               ),
             ],
           ),
