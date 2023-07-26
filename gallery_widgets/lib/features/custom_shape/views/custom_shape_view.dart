@@ -31,12 +31,12 @@ class CustomShapeView extends StatelessWidget {
             child: ClipPath(
               clipper: const TicketClipper(
                 borderRadius: 10,
-                yClipperStart: 80,
-                yClipRadius: 8,
-                yClipDashSpace: 5.0,
-                yDashHeight: 4.0,
-                yDashSpace: 3.0,
-                yDashWidth: 1.0,
+                xClipperStart: 80,
+                xClipRadius: 8,
+                xClipVerticalDashSpace: 5.0,
+                verticalDashHeight: 4.0,
+                verticalDashSpace: 3.0,
+                verticalDashWidth: 1.0,
               ),
               child: Container(
                 padding: const EdgeInsets.symmetric(
