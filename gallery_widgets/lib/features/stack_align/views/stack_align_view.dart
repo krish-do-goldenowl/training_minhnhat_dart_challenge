@@ -3,44 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_widgets/features/stack_align/cubit/stack_align_cubit.dart';
 import 'package:gallery_widgets/features/stack_align/widgets/setting_view.dart';
 
-class StackAlignView extends StatefulWidget {
+class StackAlignView extends StatelessWidget {
   const StackAlignView({super.key});
-
-  @override
-  State<StackAlignView> createState() => _StackAlignViewState();
-}
-
-class _StackAlignViewState extends State<StackAlignView> {
-  var alignment = Alignment.center;
-  var textDirection = TextDirection.ltr;
-  var stackFit = StackFit.loose;
-  var clip = Clip.hardEdge;
-
-  void onSettingChanged(dynamic newValue, int index) {
-    switch (index) {
-      case 0:
-        setState(() {
-          alignment = newValue;
-        });
-        break;
-      case 1:
-        setState(() {
-          textDirection = newValue;
-        });
-        break;
-      case 2:
-        setState(() {
-          stackFit = newValue;
-        });
-        break;
-      case 3:
-        setState(() {
-          clip = newValue;
-        });
-        break;
-      default:
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
