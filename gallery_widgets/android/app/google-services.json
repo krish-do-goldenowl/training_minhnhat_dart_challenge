@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1005960475632",
+    "project_id": "goldenowl-deploy-testing",
+    "storage_bucket": "goldenowl-deploy-testing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005960475632:android:74ab1c49c4ffe47085e335",
+        "android_client_info": {
+          "package_name": "com.maverick.go.gallery_widgets.gallery_widgets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005960475632-r4qnqmvjg9na6n01oub3pq855l5he9c2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjS1j-fcf44DoBiuMiA5o6PS8voVZfqFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005960475632-r4qnqmvjg9na6n01oub3pq855l5he9c2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005960475632-9k2q5pk13sp2uqfkorjfr3g3qme4oh0e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.maverick.go.gallerywidgets.galleryWidgets"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
