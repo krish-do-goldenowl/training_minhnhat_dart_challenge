@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_widgets/features/widgets/setting_row.dart';
+import 'package:gallery_widgets/widgets/setting_row.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({

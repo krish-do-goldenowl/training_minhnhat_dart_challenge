@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_widgets/features/row_column/cubit/row_column_cubit.dart';
-import 'package:gallery_widgets/features/widgets/setting_row.dart';
+import 'package:gallery_widgets/widgets/setting_row.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});
