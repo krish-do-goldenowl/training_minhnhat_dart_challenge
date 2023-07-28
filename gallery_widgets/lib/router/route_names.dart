@@ -11,4 +11,5 @@ class RouteNames {
   static const String rowAndColumn = '/rowAndColumn';
   static const String wrapAndChip = '/wrapAndChip';
   static const String stackAndAlign = '/stackAndAlign';
+  static const String customShape = '/customShape';
 }

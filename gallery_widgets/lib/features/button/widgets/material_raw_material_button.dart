@@ -11,8 +11,8 @@ class MaterialRawMaterialButton extends StatelessWidget {
         ClipPath(
           clipper: TicketClipper(
             borderRadius: 10,
-            yClipperStart: MediaQuery.sizeOf(context).width * 0.23,
-            yClipRadius: 8,
+            xClipperStart: MediaQuery.sizeOf(context).width * 0.23,
+            xClipRadius: 8,
           ),
           child: MaterialButton(
             onPressed: () {},
@@ -46,8 +46,8 @@ class MaterialRawMaterialButton extends StatelessWidget {
           child: ClipPath(
             clipper: TicketClipper(
               borderRadius: 10,
-              yClipperStart: MediaQuery.sizeOf(context).width * 0.23,
-              yClipRadius: 8,
+              xClipperStart: MediaQuery.sizeOf(context).width * 0.23,
+              xClipRadius: 8,
             ),
             child: Container(
               alignment: Alignment.center,

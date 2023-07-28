@@ -7,24 +7,31 @@ class TicketClipper extends CustomClipper<Path> {
     this.yClipperStart,
     this.xClipRadius = 10,
     this.yClipRadius = 10,
-    this.xClipDashSpace = 15,
-    this.yClipDashSpace = 15,
-    this.xDashWidth = 0,
-    this.xDashHeight = 0,
-    this.xDashSpace = 0,
-    this.yDashWidth = 0,
-    this.yDashHeight = 0,
-    this.yDashSpace = 0,
+    this.xClipVerticalDashSpace = 15,
+    this.yClipHorizontalDashSpace = 15,
+    this.horizontalDashWidth = 0,
+    this.horizontalDashHeight = 0,
+    this.horizontalDashSpace = 0,
+    this.verticalDashWidth = 0,
+    this.verticalDashHeight = 0,
+    this.verticalDashSpace = 0,
   });
+
+  /// x axis clippers are 2 clippers placed on the top and bottom of render box
+  /// y axis clippers are 2 clippers placed on the left and right of render box
+  /// vertical dashes are dashes start from top to bottom of render box
+  /// --> vertical dashes will use center point of x axis clippers
+  /// horizontal dashes are dashes start from left to right of render box
+  /// --> horizontal dashes will use center point of y axis clippers
 
   final double borderRadius;
   final double? xClipperStart;
   final double? yClipperStart;
   final double xClipRadius;
   final double yClipRadius;
-  final double xClipDashSpace, yClipDashSpace;
-  final double xDashWidth, xDashHeight, xDashSpace;
-  final double yDashWidth, yDashHeight, yDashSpace;
+  final double xClipVerticalDashSpace, yClipHorizontalDashSpace;
+  final double horizontalDashWidth, horizontalDashHeight, horizontalDashSpace;
+  final double verticalDashWidth, verticalDashHeight, verticalDashSpace;
 
   @override
   Path getClip(Size size) {
@@ -39,94 +46,100 @@ class TicketClipper extends CustomClipper<Path> {
     // * draw clippers and dashes (both x axis and y axis if they are not null)
     final clipPath = Path();
 
-    /// draw x axis clipper and x dashes
-    // ? if [xClipperStart] is null, then draw nothing
-    if (xClipperStart != null) {
-      final xCenter = xClipperStart != null
-          ? (xClipperStart! + xClipRadius).toDouble()
-          : 0.0;
-      // circle on the left
-      clipPath.addOval(Rect.fromCircle(
-        center: Offset(0, xCenter),
-        radius: xClipRadius,
-      ));
-
-      // circle on the right
-      clipPath.addOval(Rect.fromCircle(
-        center: Offset(size.width, xCenter),
-        radius: xClipRadius,
-      ));
-
-      // draw x axis dash line
-      // ? if [xDashWidth] or [xDashHeight] is 0, then draw nothing
-      if (xDashWidth > 0 && xDashHeight > 0) {
-        // * calculate the space to render dashes, the number of dashes, the first dash left position
-        // * and the top position of dashes
-        final xDashRenderSpace =
-            size.width - xClipDashSpace * 2 - xClipRadius * 2;
-        final xDashCount =
-            (xDashRenderSpace / (xDashWidth + xDashSpace)).floor();
-        final xDashRenderLeft = xClipDashSpace + xClipRadius;
-        final xDashTop = xCenter - xDashHeight / 2;
-
-        // * draw dashes
-        for (var i = 0; i < xDashCount; i++) {
-          clipPath.addRRect(RRect.fromRectAndRadius(
-            Rect.fromLTWH(
-              i * (xDashWidth + xDashSpace).toDouble() + xDashRenderLeft,
-              xDashTop,
-              xDashWidth,
-              xDashHeight,
-            ),
-            Radius.circular(
-                xDashWidth > xDashHeight ? xDashWidth : xDashHeight),
-          ));
-        }
-      }
-    }
-
-    /// draw y axis clipper and y dashes
+    /// draw y axis clipper and horizontal dashes
     // ? if [yClipperStart] is null, then draw nothing
     if (yClipperStart != null) {
       final yCenter = yClipperStart != null
           ? (yClipperStart! + yClipRadius).toDouble()
           : 0.0;
+      // circle on the left
+      clipPath.addOval(Rect.fromCircle(
+        center: Offset(0, yCenter),
+        radius: yClipRadius,
+      ));
+
+      // circle on the right
+      clipPath.addOval(Rect.fromCircle(
+        center: Offset(size.width, yCenter),
+        radius: yClipRadius,
+      ));
+
+      // draw horizontal axis dash line
+      // ? if [horizontalDashWidth] or [horizontalDashHeight] is 0, then draw nothing
+      if (horizontalDashWidth > 0 && horizontalDashHeight > 0) {
+        // * calculate the space to render dashes, the number of dashes, the first dash left position
+        // * and the top position of dashes
+        final horizontalDashRenderSpace =
+            size.width - yClipHorizontalDashSpace * 2 - yClipRadius * 2;
+        final horizontalDashCount =
+            (horizontalDashRenderSpace + horizontalDashSpace) ~/
+                (horizontalDashWidth + horizontalDashSpace);
+        final horizontalDashRenderLeft = yClipHorizontalDashSpace + yClipRadius;
+        final horizontalDashTop = yCenter - horizontalDashHeight / 2;
+
+        // * draw dashes
+        for (var i = 0; i < horizontalDashCount; i++) {
+          clipPath.addRRect(RRect.fromRectAndRadius(
+            Rect.fromLTWH(
+              i * (horizontalDashWidth + horizontalDashSpace).toDouble() +
+                  horizontalDashRenderLeft,
+              horizontalDashTop,
+              horizontalDashWidth,
+              horizontalDashHeight,
+            ),
+            Radius.circular(horizontalDashWidth > horizontalDashHeight
+                ? horizontalDashWidth
+                : horizontalDashHeight),
+          ));
+        }
+      }
+    }
+
+    /// draw c axis clipper and vertical dashes
+    // ? if [xClipperStart] is null, then draw nothing
+    if (xClipperStart != null) {
+      final xCenter = xClipperStart != null
+          ? (xClipperStart! + xClipRadius).toDouble()
+          : 0.0;
 
       // circle on the top
       clipPath.addOval(Rect.fromCircle(
-        center: Offset(yCenter, 0),
-        radius: yClipRadius,
+        center: Offset(xCenter, 0),
+        radius: xClipRadius,
       ));
 
       // circle on the bottom
       clipPath.addOval(Rect.fromCircle(
-        center: Offset(yCenter, size.height),
-        radius: yClipRadius,
+        center: Offset(xCenter, size.height),
+        radius: xClipRadius,
       ));
 
-      // draw y axis dash line
-      // ? if [yDashWidth] or [yDashHeight] is 0, then draw nothing
-      if (yDashWidth > 0 && yDashHeight > 0) {
+      // draw vertical axis dash line
+      // ? if [verticalDashWidth] or [verticalDashHeight] is 0, then draw nothing
+      if (verticalDashWidth > 0 && verticalDashHeight > 0) {
         // * calculate the space to render dashes, the number of dashes, the first dash left position
         // * and the top position of dashes
-        final yDashRenderSpace =
-            size.height - yClipDashSpace * 2 - yClipRadius * 2;
-        final yDashCount =
-            (yDashRenderSpace / (yDashWidth + yDashSpace)).floor();
-        final yDashRenderTop = yClipDashSpace + yClipRadius;
-        final yDashLeft = yCenter - yDashWidth / 2;
+        final verticalDashRenderSpace =
+            size.height - (xClipVerticalDashSpace * 2) - (xClipRadius * 2);
+        final verticalDashCount =
+            (verticalDashRenderSpace + verticalDashSpace) ~/
+                (verticalDashHeight + verticalDashSpace);
+        final verticalDashRenderTop = xClipVerticalDashSpace + xClipRadius;
+        final verticalDashLeft = xCenter - verticalDashWidth / 2;
 
         // * draw dashes
-        for (var i = 0; i < yDashCount; i++) {
+        for (var i = 0; i < verticalDashCount; i++) {
           clipPath.addRRect(RRect.fromRectAndRadius(
             Rect.fromLTWH(
-              yDashLeft,
-              i * (yDashWidth + yDashSpace).toDouble() + yDashRenderTop,
-              yDashWidth,
-              yDashHeight,
+              verticalDashLeft,
+              i * (verticalDashHeight + verticalDashSpace).toDouble() +
+                  verticalDashRenderTop,
+              verticalDashWidth,
+              verticalDashHeight,
             ),
-            Radius.circular(
-                yDashWidth > yDashHeight ? yDashWidth : yDashHeight),
+            Radius.circular(verticalDashWidth > verticalDashHeight
+                ? verticalDashWidth
+                : verticalDashHeight),
           ));
         }
       }
