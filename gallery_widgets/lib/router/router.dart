@@ -4,6 +4,8 @@ import 'package:gallery_widgets/features/container_decoration/views/container_de
 import 'package:gallery_widgets/features/cupertino/view/cupertino_screen.dart';
 import 'package:gallery_widgets/features/custom_shape/views/custom_shape_screen.dart';
 import 'package:gallery_widgets/features/home/view/home_screen.dart';
+import 'package:gallery_widgets/features/row_column/views/row_column_screen.dart';
+import 'package:gallery_widgets/features/stack_align/views/stack_align_screen.dart';
 import 'package:gallery_widgets/features/typography/view/typography_screen.dart';
 import 'package:gallery_widgets/router/route_names.dart';
 
@@ -44,6 +46,18 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return const ContainerDecorationScreen();
+          },
+        );
+      case RouteNames.stackAndAlign:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const StackAlignScreen();
+          },
+        );
+      case RouteNames.rowAndColumn:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const RowColumnScreen();
           },
         );
       default:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_widgets/features/custom_shape/widgets/discount_describe.dart';
 import 'package:gallery_widgets/features/custom_shape/widgets/discount_value.dart';
-import 'package:gallery_widgets/features/widgets/ticket_clip_path.dart';
+import 'package:gallery_widgets/widgets/ticket_clip_path.dart';
 
 class CustomShapeView extends StatelessWidget {
   const CustomShapeView({super.key});
