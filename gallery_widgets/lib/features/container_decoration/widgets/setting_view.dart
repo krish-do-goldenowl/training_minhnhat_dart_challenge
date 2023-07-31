@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_widgets/features/container_decoration/cubit/container_decoration_cubit.dart';
-import 'package:gallery_widgets/features/widgets/setting_row.dart';
+import 'package:gallery_widgets/widgets/setting_row.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});
@@ -21,7 +21,7 @@ class SettingView extends StatelessWidget {
             children: [
               SettingRow(
                 title: 'Border',
-                isSwitch: true,
+                settingType: SettingType.switcher,
                 currentValue: state.border,
                 onChanged: (value) => cubit.onChangeBorder(value),
               ),
@@ -41,7 +41,7 @@ class SettingView extends StatelessWidget {
               ),
               SettingRow(
                 title: 'BoxShadow',
-                isSwitch: true,
+                settingType: SettingType.switcher,
                 currentValue: state.boxShadow,
                 onChanged: (value) => cubit.onChangeBoxShadow(value),
               ),
