@@ -6,7 +6,7 @@ enum SettingType {
   radio,
 }
 
-class SettingRow extends StatefulWidget {
+class SettingRow<T> extends StatefulWidget {
   const SettingRow({
     super.key,
     this.title = '',
@@ -21,17 +21,17 @@ class SettingRow extends StatefulWidget {
   final String title;
   final SettingType settingType;
   final String dropdownHint;
-  final dynamic currentValue;
-  final dynamic radioGroupValue;
-  final List<MapEntry<String, dynamic>> valueList;
-  final Function(dynamic)? onChanged;
+  final T? currentValue;
+  final T? radioGroupValue;
+  final List<MapEntry<String, T?>> valueList;
+  final void Function(T?)? onChanged;
 
   @override
-  State<SettingRow> createState() => _SettingRowState();
+  State<SettingRow> createState() => _SettingRowState<T>();
 }
 
-class _SettingRowState extends State<SettingRow> {
-  late dynamic _currentValue;
+class _SettingRowState<T> extends State<SettingRow<T>> {
+  late T? _currentValue;
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _SettingRowState extends State<SettingRow> {
     _currentValue = widget.currentValue;
   }
 
-  void onUserSelectValue(dynamic value) {
+  void onUserSelectValue(T? value) {
     setState(() {
       _currentValue = value;
     });
@@ -55,7 +55,7 @@ class _SettingRowState extends State<SettingRow> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         if (widget.title.isNotEmpty) Text(widget.title),
-        if (widget.settingType == SettingType.switcher)
+        if (widget.settingType == SettingType.switcher && _currentValue is bool)
           _buildSwitcher()
         else if (widget.settingType == SettingType.dropdown)
           _buildDropdown(),
@@ -65,13 +65,17 @@ class _SettingRowState extends State<SettingRow> {
 
   Widget _buildSwitcher() {
     return Switch(
-      value: _currentValue,
-      onChanged: onUserSelectValue,
+      value: (_currentValue as bool?) ?? false,
+      onChanged: (value) {
+        if (_currentValue is bool) {
+          onUserSelectValue(value as T);
+        }
+      },
     );
   }
 
   Widget _buildDropdown() {
-    return DropdownButton(
+    return DropdownButton<T?>(
       value: _currentValue,
       onChanged: onUserSelectValue,
       hint: Text(widget.dropdownHint),
@@ -85,7 +89,7 @@ class _SettingRowState extends State<SettingRow> {
   }
 
   Widget _buildRadio() {
-    return RadioListTile(
+    return RadioListTile<T?>(
       value: _currentValue,
       groupValue: widget.radioGroupValue,
       title: Text(widget.title),

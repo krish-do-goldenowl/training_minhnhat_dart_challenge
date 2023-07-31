@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_widgets/features/widgets/ticket_clip_path.dart';
+import 'package:gallery_widgets/widgets/ticket_clip_path.dart';
 
 class MaterialRawMaterialButton extends StatelessWidget {
   const MaterialRawMaterialButton({super.key});

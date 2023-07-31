@@ -1,10 +1,10 @@
-import 'package:first_flutter_app/bloc/app_cubit.dart';
-import 'package:first_flutter_app/favorite_item.dart';
+import 'package:first_flutter_app/features/home/logic/app_cubit.dart';
+import 'package:first_flutter_app/features/favorite/widgets/favorite_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({super.key});
+class FavoriteView extends StatelessWidget {
+  const FavoriteView({super.key});
 
   @override
   Widget build(BuildContext context) {
