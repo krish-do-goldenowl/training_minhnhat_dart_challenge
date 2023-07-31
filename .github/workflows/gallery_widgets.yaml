@@ -135,7 +135,7 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: "internal-tester"
-          releaseNotesFile: gallery_widgets/changelog.txt
+          # releaseNotesFile: gallery_widgets/changelog.txt
           file: "gallery_widgets/build/app/outputs/flutter-apk/app-release.apk"
 
   build-success:
