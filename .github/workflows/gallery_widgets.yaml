@@ -89,23 +89,45 @@ jobs:
         shell: pwsh
         working-directory: ${{ env.working-directory }}
 
-      - name: Pre Firebase App Distribution
-        run: |
-          $isRelease = '${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' && github.event_name == 'push' }}'
+      # - name: Firebase App Distribution
+      #   run: |
+      #     $isRelease = '${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' && github.event_name == 'push' }}'
 
-          Write-Host "Changelog for ${{ steps.flutter-build.outputs.version }}"
+      #     Write-Host "Changelog for ${{ steps.flutter-build.outputs.version }}"
 
-          New-Item changelog.txt
+      #     New-Item changelog.txt
 
-          if ($isRelease -eq 'true') {
-            git branch --contains '${{ steps.flutter-build.outputs.last-version }}'
-            git tags --contains '${{ steps.flutter-build.outputs.last-version }}'
-            git --no-pager log --pretty=format:%s '${{ steps.flutter-build.outputs.last-version }}'..'${{ steps.flutter-build.outputs.version }}' > changelog.txt
-          } else {
-            git --no-pager log --pretty=format:%s '${{ github.event.pull_request.base.sha }}'..'${{ github.event.pull_request.head.sha }}' > changelog.txt
-          }
-        shell: pwsh
-        working-directory: ${{ env.working-directory }}
+      #     if ($isRelease -eq 'true') {
+      #       git branch --contains '${{ steps.flutter-build.outputs.last-version }}'
+      #       git tags --contains '${{ steps.flutter-build.outputs.last-version }}'
+      #       git --no-pager log --pretty=format:%s '${{ steps.flutter-build.outputs.last-version }}'..'${{ steps.flutter-build.outputs.version }}' > changelog.txt
+      #     } else {
+      #       git --no-pager log --pretty=format:%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} > changelog.txt
+      #     }
+
+      #     export GOOGLE_APPLICATION_CREDENTIALS=D:\Downloads/goldenowl-deploy-testing-cbba43e37012.json
+      #     firebase appdistribution:distribute 'build/app/outputs/flutter-apk/app-release.apk' --app ${{ secrets.FIREBASE_APP_ID }} --serviceCredentialsFileContent '${{ secrets.CREDENTIAL_FILE_CONTENT }}' --groups "internal-tester" --release-notes-file changelog.txt
+      #   shell: pwsh
+      #   working-directory: ${{ env.working-directory }}
+      
+
+      # - name: Pre Firebase App Distribution
+      #   run: |
+      #     $isRelease = '${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' && github.event_name == 'push' }}'
+
+      #     Write-Host "Changelog for ${{ steps.flutter-build.outputs.version }}"
+
+      #     New-Item changelog.txt
+
+      #     if ($isRelease -eq 'true') {
+      #       git branch --contains '${{ steps.flutter-build.outputs.last-version }}'
+      #       git tags --contains '${{ steps.flutter-build.outputs.last-version }}'
+      #       git --no-pager log --pretty=format:%s '${{ steps.flutter-build.outputs.last-version }}'..'${{ steps.flutter-build.outputs.version }}' > changelog.txt
+      #     } else {
+      #       git --no-pager log --pretty=format:%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} > changelog.txt
+      #     }
+      #   shell: pwsh
+      #   working-directory: ${{ env.working-directory }}
 
       - name: Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.5.1
