@@ -102,7 +102,7 @@ jobs:
             git tags --contains '${{ steps.flutter-build.outputs.last-version }}'
             git --no-pager log --pretty=format:%s '${{ steps.flutter-build.outputs.last-version }}'..'${{ steps.flutter-build.outputs.version }}' > changelog.txt
           } else {
-            git --no-pager log --pretty=format:%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} > changelog.txt
+            git --no-pager log --pretty=format:%s '${{ github.event.pull_request.base.sha }}'..'${{ github.event.pull_request.head.sha }}' > changelog.txt
           }
         shell: pwsh
         working-directory: ${{ env.working-directory }}
