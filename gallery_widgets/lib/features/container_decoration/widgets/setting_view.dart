@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_widgets/features/widgets/setting_row.dart';
+import 'package:gallery_widgets/widgets/setting_row.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({
@@ -31,7 +31,7 @@ class SettingView extends StatelessWidget {
         children: [
           SettingRow(
             title: 'Border',
-            isSwitch: true,
+            settingType: SettingType.switcher,
             currentValue: border,
             onChanged: (value) => onSettingChanged?.call(value, 0),
           ),
@@ -51,7 +51,7 @@ class SettingView extends StatelessWidget {
           ),
           SettingRow(
             title: 'BoxShadow',
-            isSwitch: true,
+            settingType: SettingType.switcher,
             currentValue: boxShadow,
             onChanged: (value) => onSettingChanged?.call(value, 2),
           ),
