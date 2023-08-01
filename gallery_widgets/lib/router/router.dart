@@ -7,6 +7,7 @@ import 'package:gallery_widgets/features/home/view/home_screen.dart';
 import 'package:gallery_widgets/features/row_column/views/row_column_screen.dart';
 import 'package:gallery_widgets/features/stack_align/views/stack_align_screen.dart';
 import 'package:gallery_widgets/features/typography/view/typography_screen.dart';
+import 'package:gallery_widgets/features/wrap_chip/views/wrap_chip_screen.dart';
 import 'package:gallery_widgets/router/route_names.dart';
 
 class AppRouter {
@@ -58,6 +59,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return const RowColumnScreen();
+          },
+        );
+      case RouteNames.wrapAndChip:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const WrapChipScreen();
           },
         );
       default:
