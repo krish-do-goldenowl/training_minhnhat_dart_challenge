@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_widgets/features/button_app_bar_action_float_button/cubit/cubit/btn_app_bar_action_float_btn_cubit.dart';
+import 'package:gallery_widgets/features/button_app_bar_action_float_button/cubit/btn_app_bar_action_float_btn_cubit.dart';
 import 'package:gallery_widgets/widgets/setting_row.dart';
 
 class RadioButtonsPart extends StatelessWidget {
