@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_widgets/features/text_field/cubit/cubit/text_field_cubit.dart';
+import 'package:gallery_widgets/features/text_field/cubit/text_field_cubit.dart';
 
 class TextField2Views extends StatelessWidget {
   const TextField2Views({super.key});
