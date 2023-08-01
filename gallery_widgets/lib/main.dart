@@ -5,6 +5,8 @@ import 'package:gallery_widgets/firebase_options.dart';
 import 'package:gallery_widgets/router/router.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

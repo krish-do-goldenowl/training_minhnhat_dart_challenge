@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,41 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBA0d813rdsL3_3mnw4TopfbLHXU8WPwSQ',
-    appId: '1:1005960475632:web:630f74f509d5578585e335',
-    messagingSenderId: '1005960475632',
-    projectId: 'goldenowl-deploy-testing',
-    authDomain: 'goldenowl-deploy-testing.firebaseapp.com',
-    storageBucket: 'goldenowl-deploy-testing.appspot.com',
-    measurementId: 'G-V99956RZL6',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAjS1j-fcf44DoBiuMiA5o6PS8voVZfqFs',
     appId: '1:1005960475632:android:74ab1c49c4ffe47085e335',
     messagingSenderId: '1005960475632',
     projectId: 'goldenowl-deploy-testing',
     storageBucket: 'goldenowl-deploy-testing.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDcbCnVTgU_Jpz3Ml5GB0SxhQsPyejQI8o',
-    appId: '1:1005960475632:ios:bdf0c00e0ba3915c85e335',
-    messagingSenderId: '1005960475632',
-    projectId: 'goldenowl-deploy-testing',
-    storageBucket: 'goldenowl-deploy-testing.appspot.com',
-    iosClientId: '1005960475632-9k2q5pk13sp2uqfkorjfr3g3qme4oh0e.apps.googleusercontent.com',
-    iosBundleId: 'com.maverick.go.gallerywidgets.galleryWidgets',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDcbCnVTgU_Jpz3Ml5GB0SxhQsPyejQI8o',
-    appId: '1:1005960475632:ios:b7bae2ba14da3f5a85e335',
-    messagingSenderId: '1005960475632',
-    projectId: 'goldenowl-deploy-testing',
-    storageBucket: 'goldenowl-deploy-testing.appspot.com',
-    iosClientId: '1005960475632-n1sk9t2813c7h487qh60s288olf51eut.apps.googleusercontent.com',
-    iosBundleId: 'com.maverick.go.gallerywidgets.galleryWidgets.RunnerTests',
   );
 }
