@@ -32,7 +32,26 @@ platform :android do
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
+    json_key_file_path = "upstore_credentials/play_store.json"
+
+    ### Test get current version code from play store
+    # previous_build_number = google_play_track_version_codes(
+    #   track: "internal",
+    #   json_key: json_key_file_path,
+    # )[0]
+    # current_build_number = previous_build_number + 1
+    # puts "current_build_number: #{current_build_number}"
+
+    ### build .aab file
+    # gradle(task: "clean bundleRelease")
+
+    ### upload .aab file to play store (to internal testing)
+    # upload_to_play_store(
+    #   json_key: json_key_file_path,
+    #   track: "internal",
+    #   # release_status: "draft",
+    #   # skip_upload_changelogs: true,
+    #   aab: "../build/app/outputs/bundle/release/app-release.aab"
+    # )
   end
 end
