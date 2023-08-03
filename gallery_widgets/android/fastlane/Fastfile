@@ -46,12 +46,12 @@ platform :android do
     # gradle(task: "clean bundleRelease")
 
     ### upload .aab file to play store (to internal testing)
-    # upload_to_play_store(
-    #   json_key: json_key_file_path,
-    #   track: "internal",
-    #   # release_status: "draft",
-    #   # skip_upload_changelogs: true,
-    #   aab: "../build/app/outputs/bundle/release/app-release.aab"
-    # )
+    upload_to_play_store(
+      json_key: json_key_file_path,
+      track: "internal",
+      release_status: "draft",
+      # skip_upload_changelogs: true,
+      aab: "../build/app/outputs/bundle/release/app-release.aab"
+    )
   end
 end
