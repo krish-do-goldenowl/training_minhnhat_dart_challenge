@@ -129,7 +129,7 @@ jobs:
             git --no-pager log --pretty=format:%s ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} > changelog.txt
           }
         shell: pwsh
-        # working-directory: ${{ env.working-directory }}
+        working-directory: ${{ env.working-directory }}
 
       - name: Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.5.1
