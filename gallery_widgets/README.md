@@ -2,15 +2,11 @@
 
 A Flutter project working on gallery widget tickets
 
-## Getting Started
+## How to run fastlane
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. [Install fastlane](https://docs.fastlane.tools/)
+2. Run `flutter build aab` or `flutter build apk --release` at least once to generate the needed gradlew files
+3. Extract folder `upstore_credentials` from `upstore_credentials.zip` and put it in the `android` folder
+4. Open terminal and run `cd android`
+5. Run `fastlane deploy`
+6. If upload failed, try to increase the version code (and version name if want to) in `android/app/build.gradle` manually and run `fastlane deploy` again
