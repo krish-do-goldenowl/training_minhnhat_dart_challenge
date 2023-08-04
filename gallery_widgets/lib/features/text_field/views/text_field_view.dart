@@ -7,12 +7,21 @@ class TextFieldView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Form View'),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Form View'),
+        ),
+        bottomNavigationBar: Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
+          child: const BottomAppBar(child: TextField2Views()),
+        ),
+        body: const SettingsView(),
       ),
-      bottomNavigationBar: const BottomAppBar(child: TextField2Views()),
-      body: const SettingsView(),
     );
   }
 }

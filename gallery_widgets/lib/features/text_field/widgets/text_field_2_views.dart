@@ -12,23 +12,20 @@ class TextField2Views extends StatelessWidget {
         vertical: 20,
         horizontal: 10,
       ),
-      child: BlocBuilder<TextFieldCubit, TextFieldState>(
-        builder: (context, state) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              buildTextField(state: state),
-              const SizedBox(height: 20),
-              buildTextField(hasBorder: true, state: state),
-            ],
-          );
-        },
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            buildTextField(),
+            const SizedBox(height: 20),
+            buildTextField(hasBorder: true),
+          ],
+        ),
       ),
     );
   }
 
-  Widget buildTextField(
-      {bool hasBorder = false, required TextFieldState state}) {
+  Widget buildTextField({bool hasBorder = false}) {
     Widget buildTextPreOrSuffix(String text) {
       return Text(
         text,
@@ -39,19 +36,26 @@ class TextField2Views extends StatelessWidget {
       );
     }
 
-    return TextField(
-        decoration: InputDecoration(
-      hintText: state.showHintText ? 'Hint Text' : null,
-      labelText: state.showLabelText ? 'Label Text' : null,
-      helperText: state.showHelpText ? 'Help Text' : null,
-      errorText: state.showErrorText ? 'Error Text' : null,
-      counterText: state.showCounterText ? 'Counter Text' : null,
-      prefix:
-          state.showPrefix ? buildTextPreOrSuffix('Prefix Text widget') : null,
-      suffix:
-          state.showSuffix ? buildTextPreOrSuffix('Suffix Text widget') : null,
-      prefixIcon: state.showPrefixIcon ? const Icon(Icons.phone) : null,
-      border: hasBorder ? const OutlineInputBorder() : null,
-    ));
+    return BlocBuilder<TextFieldCubit, TextFieldState>(
+      builder: (context, state) {
+        return TextField(
+          decoration: InputDecoration(
+            hintText: state.showHintText ? 'Hint Text' : null,
+            labelText: state.showLabelText ? 'Label Text' : null,
+            helperText: state.showHelpText ? 'Help Text' : null,
+            errorText: state.showErrorText ? 'Error Text' : null,
+            counterText: state.showCounterText ? 'Counter Text' : null,
+            prefix: state.showPrefix
+                ? buildTextPreOrSuffix('Prefix Text widget')
+                : null,
+            suffix: state.showSuffix
+                ? buildTextPreOrSuffix('Suffix Text widget')
+                : null,
+            prefixIcon: state.showPrefixIcon ? const Icon(Icons.phone) : null,
+            border: hasBorder ? const OutlineInputBorder() : null,
+          ),
+        );
+      },
+    );
   }
 }
