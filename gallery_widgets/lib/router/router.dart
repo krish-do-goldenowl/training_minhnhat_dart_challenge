@@ -67,10 +67,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return const WrapChipScreen();
+          },
+        );
       case RouteNames.textField:
         return MaterialPageRoute(
           builder: (context) {
             return const TextFieldScreen();
+          },
+        );
       case RouteNames.bottomAppBar:
         return MaterialPageRoute(
           builder: (context) {
