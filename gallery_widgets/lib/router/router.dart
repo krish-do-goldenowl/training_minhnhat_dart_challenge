@@ -7,6 +7,7 @@ import 'package:gallery_widgets/features/custom_shape/views/custom_shape_screen.
 import 'package:gallery_widgets/features/home/view/home_screen.dart';
 import 'package:gallery_widgets/features/row_column/views/row_column_screen.dart';
 import 'package:gallery_widgets/features/stack_align/views/stack_align_screen.dart';
+import 'package:gallery_widgets/features/text_field/views/text_field_screen.dart';
 import 'package:gallery_widgets/features/typography/view/typography_screen.dart';
 import 'package:gallery_widgets/features/wrap_chip/views/wrap_chip_screen.dart';
 import 'package:gallery_widgets/router/route_names.dart';
@@ -66,6 +67,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return const WrapChipScreen();
+      case RouteNames.textField:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const TextFieldScreen();
       case RouteNames.bottomAppBar:
         return MaterialPageRoute(
           builder: (context) {
