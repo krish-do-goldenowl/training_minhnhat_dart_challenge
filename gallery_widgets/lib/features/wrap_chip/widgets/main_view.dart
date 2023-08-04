@@ -13,47 +13,14 @@ class MainView extends StatelessWidget {
         builder: (context, state) {
           return ListView(
             children: [
-              buildChipPart(
-                chipType: 1,
-                state: state,
-                title: 'Chip Chip',
-                chipTexts: ['Chip', 'ActionChip', 'RawChip'],
-                selectedIndex: state.selectedChip,
-                onSelected: (index) {
-                  context.read<WrapChipCubit>().onChangeSelectedChip(
-                        type: 1,
-                        value: index,
-                      );
-                },
-              ),
+              buildTitle('Chip Chip'),
+              buildChipChipWrap(),
               const SizedBox(height: 15),
-              buildChipPart(
-                chipType: 2,
-                state: state,
-                title: 'Choice Chip',
-                chipTexts: ['Disable', 'Small', 'Large'],
-                selectedIndex: state.selectedChoiceChip,
-                onSelected: (index) {
-                  context.read<WrapChipCubit>().onChangeSelectedChip(
-                        type: 2,
-                        value: index,
-                      );
-                },
-              ),
+              buildTitle('Choice Chip'),
+              buildChoiceChipWrap(),
               const SizedBox(height: 15),
-              buildChipPart(
-                chipType: 3,
-                state: state,
-                title: 'Input Chip',
-                chipTexts: ['Disable', 'ios', 'Android'],
-                selectedIndex: state.selectedInputChip,
-                onSelected: (index) {
-                  context.read<WrapChipCubit>().onChangeSelectedChip(
-                        type: 3,
-                        value: index,
-                      );
-                },
-              ),
+              buildTitle('Input Chip'),
+              buildInputChipWrap(),
             ],
           );
         },
@@ -61,107 +28,180 @@ class MainView extends StatelessWidget {
     );
   }
 
-  Widget buildChipPart({
-    required int chipType,
-    required String title,
-    required List<String> chipTexts,
-    required int selectedIndex,
-    required Function(int) onSelected,
-    required WrapChipState state,
-  }) {
-    Widget buildChipItem({
-      required String text,
-      Function(int)? onSelected,
-      required int index,
-    }) {
-      final deleteFunction = state.deleteIcon ? () {} : null;
-      final selectedColor = Colors.blue[50];
-      final selectedTextColor =
-          index == selectedIndex ? Colors.blue[300] : null;
-      final disableColor = Colors.grey[200];
-      final elevation = state.elevation ? 5.0 : 0.0;
-      const Widget avatar = Icon(Icons.person);
-      final Widget textWidget = Text(text);
+  double getElevation({bool hasElevation = false}) {
+    return hasElevation ? 5.0 : 0.0;
+  }
 
-      if (chipType == 1) {
-        if (index == 0) {
-          return Chip(
-            elevation: elevation,
-            label: textWidget,
-            avatar: state.avatar ? avatar : null,
+  Color? getDisabledColor() {
+    return Colors.grey[200];
+  }
+
+  bool getBasicBuildWhen(WrapChipState previous, WrapChipState current) {
+    return previous.deleteIcon != current.deleteIcon ||
+        previous.avatar != current.avatar ||
+        previous.shape != current.shape ||
+        previous.elevation != current.elevation;
+  }
+
+  Widget buildTitle(String title) {
+    return Text(
+      title,
+      style: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget? buildAvatar({bool show = true}) {
+    return show ? const Icon(Icons.person) : null;
+  }
+
+  Widget buildWrapper({required List<Widget> children}) {
+    return BlocBuilder<WrapChipCubit, WrapChipState>(
+      buildWhen: (previous, current) {
+        return previous.spacing != current.spacing ||
+            previous.runSpacing != current.runSpacing;
+      },
+      builder: (context, state) {
+        return Wrap(
+          spacing: state.spacing ? 15 : 0,
+          runSpacing: state.runSpacing ? 10 : 0,
+          children: children,
+        );
+      },
+    );
+  }
+
+  Widget buildChipChipWrap() {
+    Widget buildItem({required int index}) {
+      return BlocBuilder<WrapChipCubit, WrapChipState>(
+        buildWhen: getBasicBuildWhen,
+        builder: (context, state) {
+          final deleteFunction = state.deleteIcon ? () {} : null;
+          if (index == 0) {
+            return Chip(
+              elevation: getElevation(hasElevation: state.elevation),
+              label: const Text('Chip'),
+              avatar: buildAvatar(show: state.avatar),
+              shape: state.shape,
+              onDeleted: deleteFunction,
+            );
+          }
+
+          if (index == 1) {
+            return ActionChip(
+              elevation: getElevation(hasElevation: state.elevation),
+              label: const Text('ActionChip'),
+              avatar: buildAvatar(show: state.avatar),
+              shape: state.shape,
+              onPressed: () {},
+            );
+          }
+
+          return RawChip(
+            elevation: getElevation(hasElevation: state.elevation),
+            label: const Text('RawChip'),
+            avatar: buildAvatar(show: state.avatar),
+            shape: state.shape,
             onDeleted: deleteFunction,
-            shape: state.shape,
           );
-        }
-        if (index == 1) {
-          return ActionChip(
-            elevation: elevation,
-            label: textWidget,
-            avatar: state.avatar ? avatar : null,
-            shape: state.shape,
-            onPressed: () {},
-          );
-        }
-        return RawChip(
-          elevation: elevation,
-          label: textWidget,
-          avatar: state.avatar ? avatar : null,
-          onDeleted: deleteFunction,
-          shape: state.shape,
-        );
-      }
-
-      if (chipType == 2) {
-        return ChoiceChip(
-          elevation: elevation,
-          label: textWidget,
-          labelStyle: TextStyle(color: selectedTextColor),
-          avatar: state.avatar ? avatar : null,
-          selected: index == selectedIndex,
-          shape: state.shape,
-          selectedColor: selectedColor,
-          disabledColor: disableColor,
-          onSelected: onSelected != null ? (value) => onSelected(index) : null,
-        );
-      }
-
-      return InputChip(
-        elevation: elevation,
-        label: textWidget,
-        avatar: state.avatar ? avatar : null,
-        onDeleted: onSelected != null ? deleteFunction : null,
-        selected: index == selectedIndex,
-        shape: state.shape,
-        disabledColor: disableColor,
-        onSelected: onSelected != null ? (value) => onSelected(index) : null,
+        },
       );
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+    return buildWrapper(
+      children: List.generate(3, (index) => buildItem(index: index)),
+    );
+  }
+
+  Widget buildChoiceChipWrap() {
+    Widget buildChoiceChipItem({
+      required int index,
+      required String label,
+    }) {
+      return BlocBuilder<WrapChipCubit, WrapChipState>(
+        buildWhen: (previous, current) {
+          return getBasicBuildWhen(previous, current) ||
+              previous.selectedChoiceChip != current.selectedChoiceChip;
+        },
+        builder: (context, state) {
+          final selected = state.selectedChoiceChip == index;
+          return ChoiceChip(
+            elevation: getElevation(hasElevation: state.elevation),
+            label: Text(label),
+            labelStyle: TextStyle(color: selected ? Colors.blue[300] : null),
+            selectedColor: Colors.blue[50],
+            disabledColor: getDisabledColor(),
+            avatar: buildAvatar(show: state.avatar),
+            shape: state.shape,
+            selected: selected,
+            onSelected: label == 'Disable'
+                ? null
+                : (value) {
+                    context.read<WrapChipCubit>().onChangeSelectedChip(
+                          type: 2,
+                          value: index,
+                        );
+                  },
+          );
+        },
+      );
+    }
+
+    return buildWrapper(
+      children: List.generate(
+        3,
+        (index) => buildChoiceChipItem(
+          index: index,
+          label: index == 0 ? 'Disable' : (index == 1 ? 'Small' : 'Large'),
         ),
-        Wrap(
-          spacing: state.spacing ? 15 : 0,
-          runSpacing: state.runSpacing ? 10 : 0,
-          children: List.generate(
-            chipTexts.length,
-            (index) => buildChipItem(
-              text: chipTexts[index],
-              index: index,
-              onSelected: (chipType == 1 || chipTexts[index] == 'Disable')
-                  ? null
-                  : onSelected,
-            ),
-          ),
+      ),
+    );
+  }
+
+  Widget buildInputChipWrap() {
+    Widget buildInputChipItem({
+      required int index,
+      required String label,
+    }) {
+      return BlocBuilder<WrapChipCubit, WrapChipState>(
+        buildWhen: (previous, current) {
+          return getBasicBuildWhen(previous, current) ||
+              previous.selectedInputChip != current.selectedInputChip;
+        },
+        builder: (context, state) {
+          final selected = state.selectedInputChip == index;
+          final deleteFunction = state.deleteIcon ? () {} : null;
+          return InputChip(
+            elevation: getElevation(hasElevation: state.elevation),
+            label: Text(label),
+            avatar: buildAvatar(show: state.avatar),
+            onDeleted: label == 'Disable' ? null : deleteFunction,
+            selected: selected,
+            shape: state.shape,
+            disabledColor: getDisabledColor(),
+            onSelected: label == 'Disable'
+                ? null
+                : (value) {
+                    context.read<WrapChipCubit>().onChangeSelectedChip(
+                          type: 3,
+                          value: index,
+                        );
+                  },
+          );
+        },
+      );
+    }
+
+    return buildWrapper(
+      children: List.generate(
+        3,
+        (index) => buildInputChipItem(
+          index: index,
+          label: index == 0 ? 'Disable' : (index == 1 ? 'ios' : 'Android'),
         ),
-      ],
+      ),
     );
   }
 }
