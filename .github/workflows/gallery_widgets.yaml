@@ -42,6 +42,7 @@ jobs:
           PROPERTIES_PATH: "./android/key.properties"
         # run: echo "$KEY_PROPERTIES" | base64 --decode > android/key.properties
         run: echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> ${{env.PROPERTIES_PATH}} && echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> ${{env.PROPERTIES_PATH}} && echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> ${{env.PROPERTIES_PATH}} && echo "storeFile=${{ secrets.STOREFILE }}" >> ${{env.PROPERTIES_PATH}}
+        working-directory: ${{ env.working-directory }}
       
       # --- Flutter Build ---
       - id: flutter-build
