@@ -9,21 +9,17 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-      child: BlocBuilder<WrapChipCubit, WrapChipState>(
-        builder: (context, state) {
-          return ListView(
-            children: [
-              buildTitle('Chip Chip'),
-              buildChipChipWrap(),
-              const SizedBox(height: 15),
-              buildTitle('Choice Chip'),
-              buildChoiceChipWrap(),
-              const SizedBox(height: 15),
-              buildTitle('Input Chip'),
-              buildInputChipWrap(),
-            ],
-          );
-        },
+      child: ListView(
+        children: [
+          buildTitle('Chip Chip'),
+          buildChipChipWrap(),
+          const SizedBox(height: 15),
+          buildTitle('Choice Chip'),
+          buildChoiceChipWrap(),
+          const SizedBox(height: 15),
+          buildTitle('Input Chip'),
+          buildInputChipWrap(),
+        ],
       ),
     );
   }
