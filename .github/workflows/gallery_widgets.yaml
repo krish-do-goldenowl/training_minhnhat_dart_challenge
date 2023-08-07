@@ -26,6 +26,7 @@ jobs:
         uses: actions/checkout@v3
         with: 
           fetch-depth: '0'
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: setup Java
         uses: actions/setup-java@v3
@@ -81,7 +82,7 @@ jobs:
           if ($isRelease -eq 'true') {
             git tag "$versionString" ${{ github.head_ref }}
 
-            # git push https://$env:username:$env:CI_TOKEN@github.com/${{ github.repository }}.git "$versionString"
+            git push https://$env:username:$env:CI_TOKEN@github.com/${{ github.repository }}.git "$versionString"
           }
         shell: pwsh
         env:
