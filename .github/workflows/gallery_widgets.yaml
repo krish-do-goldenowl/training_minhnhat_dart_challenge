@@ -25,7 +25,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with: 
-          persist-credentials: false
           fetch-depth: '0'
           
       - name: setup Java
@@ -82,7 +81,7 @@ jobs:
           if ($isRelease -eq 'true') {
             git tag "$versionString" ${{ github.head_ref }}
 
-            git push https://$env:username:$env:CI_TOKEN@github.com/${{ github.repository }}.git "$versionString"
+            git push https://$env:username:$env:CI_TOKEN@github.com/${{ github.repository }}/gallery_widgets.git "$versionString"
           }
         shell: pwsh
         env:
