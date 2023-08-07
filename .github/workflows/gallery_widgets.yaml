@@ -78,11 +78,11 @@ jobs:
           flutter build $buildCommands --release --build-name $versionString --build-number '${{ github.run_number }}'
           Write-Host "name=version::$versionString" >> $GITHUB_OUTPUT
 
-          # if ($isRelease -eq 'true') {
-          #   git tag "$versionString" ${{ github.head_ref }}
+          if ($isRelease -eq 'true') {
+            git tag "$versionString" ${{ github.head_ref }}
 
-          #   git push https://$env:username:$env:CI_TOKEN@github.com/${{ github.repository }}.git "$versionString"
-          # }
+            # git push https://$env:username:$env:CI_TOKEN@github.com/${{ github.repository }}.git "$versionString"
+          }
         shell: pwsh
         env:
           CI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
