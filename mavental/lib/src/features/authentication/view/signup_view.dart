@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:myapp/src/features/authentication/logic/signup_bloc.dart';
-import 'package:myapp/src/features/authentication/widget/sign_title.dart';
-import 'package:myapp/src/localization/localization_utils.dart';
-import 'package:myapp/widgets/button/button.dart';
-import 'package:myapp/widgets/froms/input.dart';
+import 'package:mavental/src/features/authentication/logic/signup_bloc.dart';
+import 'package:mavental/src/features/authentication/widget/sign_title.dart';
+import 'package:mavental/src/localization/localization_utils.dart';
+import 'package:mavental/widgets/button/button.dart';
+import 'package:mavental/widgets/froms/input.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({Key? key}) : super(key: key);

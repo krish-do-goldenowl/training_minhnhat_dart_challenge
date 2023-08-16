@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/theme/colors.dart';
+import 'package:mavental/src/theme/colors.dart';
 
 class NotFoundView extends StatelessWidget {
   const NotFoundView({Key? key}) : super(key: key);

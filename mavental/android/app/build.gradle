@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.pingak9.template"
+        applicationId "com.maverick.go.mavental"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 21
@@ -58,12 +58,12 @@ android {
         production {
             dimension "flavor"
             applicationIdSuffix ""
-            manifestPlaceholders = [appName: "Template"]
+            manifestPlaceholders = [appName: "Mavental"]
         }
         staging {
             dimension "flavor"
             applicationIdSuffix ".stg"
-            manifestPlaceholders = [appName: "Template [STG]"]
+            manifestPlaceholders = [appName: "Mavental [STG]"]
         }
     }
 

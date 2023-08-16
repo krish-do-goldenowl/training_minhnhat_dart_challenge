@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/src/services/user_prefs.dart';
+import 'package:mavental/src/services/user_prefs.dart';
 
 part 'setting_state.dart';
 

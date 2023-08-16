@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/src/network/model/common/error_code.dart';
+import 'package:mavental/src/network/model/common/error_code.dart';
 
 import '../../utils/utils.dart';
 import '../model/common/result.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart' as al;
-import 'package:myapp/src/router/coordinator.dart';
+import 'package:mavental/src/router/coordinator.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class S {

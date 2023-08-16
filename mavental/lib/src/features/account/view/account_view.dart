@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/src/features/account/logic/account_bloc.dart';
-import 'package:myapp/src/features/account/widget/account_nouser_cart.dart';
-import 'package:myapp/src/features/account/widget/account_user_card.dart';
-import 'package:myapp/widgets/appbar/large_title_appbar.dart';
-import 'package:myapp/widgets/card/card.dart';
-import 'package:myapp/widgets/card/card_section.dart';
+import 'package:mavental/src/features/account/logic/account_bloc.dart';
+import 'package:mavental/src/features/account/widget/account_nouser_cart.dart';
+import 'package:mavental/src/features/account/widget/account_user_card.dart';
+import 'package:mavental/widgets/appbar/large_title_appbar.dart';
+import 'package:mavental/widgets/card/card.dart';
+import 'package:mavental/widgets/card/card_section.dart';
 
 class AccountHomeView extends StatelessWidget {
   const AccountHomeView({Key? key}) : super(key: key);

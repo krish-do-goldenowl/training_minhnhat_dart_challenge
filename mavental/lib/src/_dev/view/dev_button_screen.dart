@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/button/text_button.dart';
+import 'package:mavental/widgets/button/text_button.dart';
 
 import '../../../widgets/button/button.dart';
 import '../../../widgets/button/model/button_size.dart';

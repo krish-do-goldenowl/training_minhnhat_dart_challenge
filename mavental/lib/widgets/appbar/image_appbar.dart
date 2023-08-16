@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/image/image_network.dart';
+import 'package:mavental/widgets/image/image_network.dart';
 
 class XImageAppBar extends SliverPersistentHeaderDelegate {
   XImageAppBar(

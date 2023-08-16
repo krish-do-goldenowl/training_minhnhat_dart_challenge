@@ -1,5 +1,5 @@
-import 'package:myapp/src/network/model/social_user/social_user.dart';
-import 'package:myapp/src/network/model/user/user.dart';
+import 'package:mavental/src/network/model/social_user/social_user.dart';
+import 'package:mavental/src/network/model/user/user.dart';
 
 import '../../model/common/result.dart';
 

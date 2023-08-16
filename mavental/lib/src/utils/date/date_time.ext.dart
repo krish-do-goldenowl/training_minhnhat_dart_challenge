@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:myapp/src/utils/date/date_helper.dart';
+import 'package:mavental/src/utils/date/date_helper.dart';
 
 extension DateUtilsExtensions on DateTime {
   int get daysInMonth => DateHelper.daysPerMonth(year)[month - 1];

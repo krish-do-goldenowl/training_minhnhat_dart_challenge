@@ -2,16 +2,16 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:myapp/src/dialogs/alert_wrapper.dart';
-import 'package:myapp/src/dialogs/toast_wrapper.dart';
-import 'package:myapp/src/features/account/logic/account_bloc.dart';
-import 'package:myapp/src/features/authentication/model/email_fromz.dart';
-import 'package:myapp/src/features/authentication/model/model_input.dart';
-import 'package:myapp/src/features/authentication/model/name_formz.dart';
-import 'package:myapp/src/network/domain_manager.dart';
+import 'package:mavental/src/dialogs/alert_wrapper.dart';
+import 'package:mavental/src/dialogs/toast_wrapper.dart';
+import 'package:mavental/src/features/account/logic/account_bloc.dart';
+import 'package:mavental/src/features/authentication/model/email_fromz.dart';
+import 'package:mavental/src/features/authentication/model/model_input.dart';
+import 'package:mavental/src/features/authentication/model/name_formz.dart';
+import 'package:mavental/src/network/domain_manager.dart';
 import 'package:formz/formz.dart';
-import 'package:myapp/src/network/model/user/user.dart';
-import 'package:myapp/src/router/coordinator.dart';
+import 'package:mavental/src/network/model/user/user.dart';
+import 'package:mavental/src/router/coordinator.dart';
 
 part 'signup_state.dart';
 

@@ -1,4 +1,4 @@
-import 'package:myapp/src/network/model/common/pagination/pagination_response.dart';
+import 'package:mavental/src/network/model/common/pagination/pagination_response.dart';
 
 import '../handle.dart';
 import '../result.dart';

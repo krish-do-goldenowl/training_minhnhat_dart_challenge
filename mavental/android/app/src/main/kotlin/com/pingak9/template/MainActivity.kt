@@ -1,4 +1,4 @@
-package com.pingak9.template
+package com.maverick.go.mavental
 
 import io.flutter.embedding.android.FlutterActivity
 

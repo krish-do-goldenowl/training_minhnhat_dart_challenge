@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:535789737885:android:62e3b967ff87599480c174",
         "android_client_info": {
-          "package_name": "com.pingak9.template"
+          "package_name": "com.maverick.go.mavental"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "535789737885-n14bfdlqb726ht8lte1he0b9ilpj3c0i.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.pingak9.template"
+                "bundle_id": "com.maverick.go.mavental"
               }
             }
           ]

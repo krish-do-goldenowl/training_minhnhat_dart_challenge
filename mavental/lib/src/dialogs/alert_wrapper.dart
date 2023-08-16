@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/dialogs/widget/alert_dialog.dart';
-import 'package:myapp/src/router/coordinator.dart';
+import 'package:mavental/src/dialogs/widget/alert_dialog.dart';
+import 'package:mavental/src/router/coordinator.dart';
 
 import '../localization/localization_utils.dart';
 

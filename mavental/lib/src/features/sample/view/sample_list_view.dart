@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/router/coordinator.dart';
+import 'package:mavental/src/router/coordinator.dart';
 import '../../../../gen/assets.gen.dart';
 
 class SampleItemListView extends StatelessWidget {

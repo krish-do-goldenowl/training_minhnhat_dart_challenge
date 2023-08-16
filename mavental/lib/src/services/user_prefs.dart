@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:myapp/src/network/model/user/user.dart';
-import 'package:myapp/src/utils/utils.dart';
+import 'package:mavental/src/network/model/user/user.dart';
+import 'package:mavental/src/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: camel_case_types

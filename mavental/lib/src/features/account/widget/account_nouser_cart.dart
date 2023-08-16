@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/router/coordinator.dart';
-import 'package:myapp/src/theme/colors.dart';
-import 'package:myapp/widgets/button/text_button.dart';
-import 'package:myapp/widgets/card/card.dart';
+import 'package:mavental/src/router/coordinator.dart';
+import 'package:mavental/src/theme/colors.dart';
+import 'package:mavental/widgets/button/text_button.dart';
+import 'package:mavental/widgets/card/card.dart';
 
 class AccountNoUserCard extends StatelessWidget {
   const AccountNoUserCard({Key? key}) : super(key: key);

@@ -2,10 +2,10 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:myapp/src/dialogs/alert_wrapper.dart';
-import 'package:myapp/src/features/authentication/model/email_fromz.dart';
-import 'package:myapp/src/network/domain_manager.dart';
-import 'package:myapp/src/router/coordinator.dart';
+import 'package:mavental/src/dialogs/alert_wrapper.dart';
+import 'package:mavental/src/features/authentication/model/email_fromz.dart';
+import 'package:mavental/src/network/domain_manager.dart';
+import 'package:mavental/src/router/coordinator.dart';
 
 import '../../../network/model/common/result.dart';
 

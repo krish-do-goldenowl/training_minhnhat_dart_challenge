@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:myapp/src/network/model/social_type.dart';
+import 'package:mavental/src/network/model/social_type.dart';
 
 part 'social_user.freezed.dart';
 part 'social_user.g.dart';

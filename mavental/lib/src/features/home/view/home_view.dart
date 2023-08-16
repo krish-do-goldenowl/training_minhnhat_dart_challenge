@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/_dev/widget/dev_wrap_button.dart';
-import 'package:myapp/src/dialogs/toast_wrapper.dart';
-import 'package:myapp/src/router/coordinator.dart';
-import 'package:myapp/widgets/button/text_button.dart';
+import 'package:mavental/src/_dev/widget/dev_wrap_button.dart';
+import 'package:mavental/src/dialogs/toast_wrapper.dart';
+import 'package:mavental/src/router/coordinator.dart';
+import 'package:mavental/widgets/button/text_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

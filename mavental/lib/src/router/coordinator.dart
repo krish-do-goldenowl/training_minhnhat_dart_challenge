@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/src/router/route_name.dart';
-import 'package:myapp/src/router/router.dart';
+import 'package:mavental/src/router/route_name.dart';
+import 'package:mavental/src/router/router.dart';
 
 class AppCoordinator {
   static AppRouter get rootRouter => GetIt.I<AppRouter>();

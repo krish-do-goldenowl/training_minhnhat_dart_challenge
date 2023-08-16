@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/theme/colors.dart';
+import 'package:mavental/src/theme/colors.dart';
 
 class LargeTitleAppBar extends StatelessWidget {
   const LargeTitleAppBar(this.title,

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:myapp/src/features/account/logic/account_bloc.dart';
-import 'package:myapp/src/features/settings/logic/setting_bloc.dart';
-import 'package:myapp/src/router/router.dart';
-import 'package:myapp/src/theme/screen.dart';
-import 'package:myapp/src/theme/themes.dart';
-import 'package:myapp/src/localization/localization_utils.dart';
+import 'package:mavental/src/features/account/logic/account_bloc.dart';
+import 'package:mavental/src/features/settings/logic/setting_bloc.dart';
+import 'package:mavental/src/router/router.dart';
+import 'package:mavental/src/theme/screen.dart';
+import 'package:mavental/src/theme/themes.dart';
+import 'package:mavental/src/localization/localization_utils.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);

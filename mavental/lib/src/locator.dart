@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:myapp/src/config/devices/app_info.dart';
-import 'package:myapp/src/features/account/logic/account_bloc.dart';
-import 'package:myapp/src/network/domain_manager.dart';
-import 'package:myapp/src/router/router.dart';
-import 'package:myapp/src/services/user_prefs.dart';
+import 'package:mavental/src/config/devices/app_info.dart';
+import 'package:mavental/src/features/account/logic/account_bloc.dart';
+import 'package:mavental/src/network/domain_manager.dart';
+import 'package:mavental/src/router/router.dart';
+import 'package:mavental/src/services/user_prefs.dart';
 
 import 'features/common/app_bloc/bloc_observer.dart';
 import 'services/firebase_message.dart';

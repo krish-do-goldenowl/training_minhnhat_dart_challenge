@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/theme/styles.dart';
+import 'package:mavental/src/theme/styles.dart';
 
 import 'colors.dart';
 
@@ -9,6 +9,7 @@ class AppTheme {
   static ThemeData light() => ThemeData(
         fontFamily: fontFamily,
         scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
+
         /// dialog
         dialogTheme: DialogTheme(
           backgroundColor: Colors.white,

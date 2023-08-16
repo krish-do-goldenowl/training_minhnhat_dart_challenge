@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/features/common/view/not_found_view.dart';
-import 'package:myapp/src/features/common/view/webview/web_view.dart';
-import 'package:myapp/widgets/button/button.dart';
+import 'package:mavental/src/features/common/view/not_found_view.dart';
+import 'package:mavental/src/features/common/view/webview/web_view.dart';
+import 'package:mavental/widgets/button/button.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../widgets/state/state_empty_widget.dart';

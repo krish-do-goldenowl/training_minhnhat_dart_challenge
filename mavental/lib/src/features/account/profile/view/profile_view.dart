@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/src/features/account/logic/account_bloc.dart';
-import 'package:myapp/src/router/coordinator.dart';
-import 'package:myapp/widgets/card/card.dart';
-import 'package:myapp/widgets/card/card_section.dart';
+import 'package:mavental/src/features/account/logic/account_bloc.dart';
+import 'package:mavental/src/router/coordinator.dart';
+import 'package:mavental/widgets/card/card.dart';
+import 'package:mavental/widgets/card/card_section.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);

@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:formz/formz.dart';
-import 'package:myapp/gen/assets.gen.dart';
-import 'package:myapp/src/features/authentication/logic/signin_bloc.dart';
-import 'package:myapp/src/localization/localization_utils.dart';
-import 'package:myapp/src/network/model/social_type.dart';
-import 'package:myapp/widgets/common/indicator.dart';
+import 'package:mavental/gen/assets.gen.dart';
+import 'package:mavental/src/features/authentication/logic/signin_bloc.dart';
+import 'package:mavental/src/localization/localization_utils.dart';
+import 'package:mavental/src/network/model/social_type.dart';
+import 'package:mavental/widgets/common/indicator.dart';
 
 class SocialListButton extends StatelessWidget {
   const SocialListButton({Key? key}) : super(key: key);

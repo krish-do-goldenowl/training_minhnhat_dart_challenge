@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/src/utils/utils.dart';
-import 'package:myapp/src/dialogs/toast_wrapper.dart';
+import 'package:mavental/src/utils/utils.dart';
+import 'package:mavental/src/dialogs/toast_wrapper.dart';
 
 class XSmallNumberField extends StatelessWidget {
   XSmallNumberField({super.key, this.value, this.onChanged, this.hintText});

@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/src/localization/localization_utils.dart';
-import 'package:myapp/src/theme/colors.dart';
+import 'package:mavental/src/localization/localization_utils.dart';
+import 'package:mavental/src/theme/colors.dart';
 
 class XAlertButton<T> {
   final String? title;

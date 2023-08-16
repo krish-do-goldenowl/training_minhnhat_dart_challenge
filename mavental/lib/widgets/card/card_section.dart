@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/card/card.dart';
-import 'package:myapp/widgets/common/nav_icon.dart';
+import 'package:mavental/widgets/card/card.dart';
+import 'package:mavental/widgets/common/nav_icon.dart';
 
 class XCardSection extends StatelessWidget {
   const XCardSection({Key? key, required this.children, this.borderColor})

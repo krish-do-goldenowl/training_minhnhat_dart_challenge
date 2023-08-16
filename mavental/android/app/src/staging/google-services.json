@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:526180610767:android:ae2be982eaabbf74bffdba",
         "android_client_info": {
-          "package_name": "com.pingak9.template"
+          "package_name": "com.maverick.go.mavental"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "526180610767-c20bio3mvfva7nb9k994qno8erif1r4v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.pingak9.template",
+            "package_name": "com.maverick.go.mavental",
             "certificate_hash": "e7acc322f57935cc5a8567800db97017b6fa7c6e"
           }
         },
@@ -54,7 +54,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:526180610767:android:adf9b0d8c7ef7c34bffdba",
         "android_client_info": {
-          "package_name": "com.pingak9.template.stg"
+          "package_name": "com.maverick.go.mavental.stg"
         }
       },
       "oauth_client": [

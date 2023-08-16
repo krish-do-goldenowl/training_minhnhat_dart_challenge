@@ -2,16 +2,16 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:myapp/src/features/authentication/logic/signin_bloc.dart';
-import 'package:myapp/src/features/authentication/widget/sign_title.dart';
-import 'package:myapp/src/features/authentication/widget/social_list_button.dart';
-import 'package:myapp/src/localization/localization_utils.dart';
-import 'package:myapp/src/network/model/social_type.dart';
-import 'package:myapp/src/router/coordinator.dart';
-import 'package:myapp/src/theme/colors.dart';
-import 'package:myapp/widgets/button/button.dart';
-import 'package:myapp/widgets/button/text_button.dart';
-import 'package:myapp/widgets/froms/input.dart';
+import 'package:mavental/src/features/authentication/logic/signin_bloc.dart';
+import 'package:mavental/src/features/authentication/widget/sign_title.dart';
+import 'package:mavental/src/features/authentication/widget/social_list_button.dart';
+import 'package:mavental/src/localization/localization_utils.dart';
+import 'package:mavental/src/network/model/social_type.dart';
+import 'package:mavental/src/router/coordinator.dart';
+import 'package:mavental/src/theme/colors.dart';
+import 'package:mavental/widgets/button/button.dart';
+import 'package:mavental/widgets/button/text_button.dart';
+import 'package:mavental/widgets/froms/input.dart';
 
 class SigninView extends StatelessWidget {
   const SigninView({Key? key}) : super(key: key);

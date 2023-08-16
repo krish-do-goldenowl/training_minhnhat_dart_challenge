@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/common/indicator.dart';
+import 'package:mavental/widgets/common/indicator.dart';
 
 import 'model/button_size.dart';
 

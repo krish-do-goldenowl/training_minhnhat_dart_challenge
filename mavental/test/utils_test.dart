@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:myapp/src/utils/utils.dart';
+import 'package:mavental/src/utils/utils.dart';
 
 void main() {
   group('Test splice list', () {

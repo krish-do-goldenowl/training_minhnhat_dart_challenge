@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/src/features/dashboard/logic/navigation_bar_item.dart';
-import 'package:myapp/src/features/dashboard/logic/dashboard_bloc.dart';
+import 'package:mavental/src/features/dashboard/logic/navigation_bar_item.dart';
+import 'package:mavental/src/features/dashboard/logic/dashboard_bloc.dart';
 
 class XBottomNavigationBar extends StatelessWidget {
   const XBottomNavigationBar({super.key});

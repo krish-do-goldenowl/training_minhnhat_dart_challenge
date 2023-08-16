@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/src/dialogs/alert_wrapper.dart';
-import 'package:myapp/src/dialogs/widget/alert_dialog.dart';
-import 'package:myapp/src/localization/localization_utils.dart';
-import 'package:myapp/src/network/domain_manager.dart';
-import 'package:myapp/src/network/model/user/user.dart';
-import 'package:myapp/src/services/user_prefs.dart';
+import 'package:mavental/src/dialogs/alert_wrapper.dart';
+import 'package:mavental/src/dialogs/widget/alert_dialog.dart';
+import 'package:mavental/src/localization/localization_utils.dart';
+import 'package:mavental/src/network/domain_manager.dart';
+import 'package:mavental/src/network/model/user/user.dart';
+import 'package:mavental/src/services/user_prefs.dart';
 
 part 'account_state.dart';
 
