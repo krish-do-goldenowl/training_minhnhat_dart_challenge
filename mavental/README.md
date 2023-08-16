@@ -1,10 +1,8 @@
 ![screenshot](resources/images/github-banner.png)
 
-# Flutter Boilerplate
+# Mavental
 
-Fork this project then start you project with a lot of stuck prepare
-
-Base project made with much: . Contains Bloc, Route, and much more!
+Project for implementing the Mavental app
 
 ## Table of contents
 
@@ -15,9 +13,9 @@ Base project made with much: . Contains Bloc, Route, and much more!
 
 ## Prerequisites
 
-- Flutter: >=3.7.0 <4.0.0
+- Flutter: >=3.10.6 <4.0.0
 - [Firebase staging](https://console.firebase.google.com/u/0/project/flutter-app-ec8dd/settings/iam)
-- [Firebase prod](https://console.firebase.google.com/u/0/project/template-app-prod-3a034/settings/iam)
+- [Firebase prod](https://console.firebase.google.com/project/goldenowl-mavental/settings/iam)
 
 ## How to Use
 
@@ -26,62 +24,35 @@ Base project made with much: . Contains Bloc, Route, and much more!
 1. Download or clone this repo by using the link below:
 
 ```
-https://github.com/GoldenOwlAsia/mobile-flutter-template.git
+https://github.com/krish-do-goldenowl/training_minhnhat_dart_challenge.git
 ```
 
-2. Go to project root and execute the following command in console to get the required dependencies:
+2. Go to `mavental` directory and execute the following command in console to get the required dependencies:
 
 ```
 flutter pub get
 ```
 
-3. Now run the generator
+3. Now run the generator (to generate necessary files for packages using build_runner auto_route, freezed...)
 
 ```
-flutter packages pub run build_runner build
+flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
-4. To run staging project
+4. Connect your device
+
+5. Run staging project by using the command below
 
 ```
 flutter run --flavor staging --target lib/main_staging.dart
 ```
 
-5. To run production project
+6. Run production project by using the command below
 
 ```
-flutter run --flavor production --target lib/main_production.dart
+flutter run --flavor production --target lib/main.dart
 ```
 
-## Use this template to create your project
-
-1. Download or clone this repo by using the link below:
-
-```
-https://github.com/GoldenOwlAsia/mobile-flutter-template.git
-```
-
-2. Go to project root and execute the following command in console to update this project config
-
-```sh
-sudo sh initialize.sh
-```
-
-- [x] Remove git, update readme
-- [ ] Change your app-name in `pubspec.yaml`
-
-3. Change your app builder id (iOS & Android)
-
-- Update your appID
-- Replace/Update your firebase config as your project.
-  - Android staging: `android/app/src/staging/google-services.json`
-  - Android production: `android/app/src/production/google-services.json`
-  - iOS staging: `ios/config/GoogleService-Info.plist`
-  - iOS production: `ios/config/GoogleService-Info.plist`
-  - Update `firebase_options_prod.dart`
-  - Update `firebase_options_stg.dart`
-
-4. [Try to run this code](#run-this-template)
 
 # Code Conventions
 
@@ -121,13 +92,14 @@ sudo sh initialize.sh
 
 ## HTTP, API
 
-- [http](https://pub.dev/packages/http): A composable, Future-based library for making HTTP requests.
+- [dio](https://pub.dev/packages/dio): A composable, Future-based library for making HTTP requests.
 
 ## Flutter Fire
 
 > The official Firebase plugins for Flutter. sign_in, analytics, crashlytics, storage, firestore
 
 - [Flutter Fire](https://firebase.flutter.dev/)
+- [Flutter Fire (up to date doc)](https://firebase.google.com/docs/flutter/setup?hl=vi&platform=ios#available-plugins)
 
 ## State Management
 
