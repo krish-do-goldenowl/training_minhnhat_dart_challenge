@@ -48,7 +48,7 @@ class AppRouter {
       ShellRoute(
         navigatorKey: AppCoordinator.shellKey,
         builder: (context, state, child) => DashBoardScreen(
-          currentItem: XNavigationBarItems.fromLocation(state.location),
+          currentItem: XNavigationBarItems.fromLocation(state.matchedLocation),
           body: child,
         ),
         routes: <RouteBase>[
@@ -70,8 +70,8 @@ class AppRouter {
                     path: AppRouteNames.sampleDetails.buildSubPathParam,
                     name: AppRouteNames.sampleDetails.name,
                     builder: (_, state) {
-                      final id =
-                          state.params[AppRouteNames.sampleDetails.paramName]!;
+                      final id = state.pathParameters[
+                          AppRouteNames.sampleDetails.paramName]!;
                       return SampleItemDetailsView(id: id);
                     },
                   )
