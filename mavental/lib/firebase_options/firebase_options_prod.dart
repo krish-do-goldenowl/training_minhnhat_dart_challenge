@@ -47,31 +47,31 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBu2BCio3JP3CIRXfmfs0kuW7wUSboEKVI',
-    appId: '1:535789737885:web:08771737097b8c6480c174',
-    messagingSenderId: '535789737885',
-    projectId: 'template-app-prod-3a034',
-    authDomain: 'template-app-prod-3a034.firebaseapp.com',
-    storageBucket: 'template-app-prod-3a034.appspot.com',
-    measurementId: 'G-XV064MGKGP',
+    apiKey: 'AIzaSyDLqjBobFKJ3hgv7xvfRPz-7zANVIiEJAA',
+    appId: '1:158898518103:web:7cffa7267f4e9ddf544b12',
+    messagingSenderId: '158898518103',
+    projectId: 'goldenowl-mavental',
+    authDomain: 'goldenowl-mavental.firebaseapp.com',
+    storageBucket: 'goldenowl-mavental.appspot.com',
+    measurementId: 'G-TN6X2GE46S',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD9JLZxQb6qh6Lzs9OJ6GhQxN4FDirna2s',
-    appId: '1:535789737885:android:62e3b967ff87599480c174',
-    messagingSenderId: '535789737885',
-    projectId: 'template-app-prod-3a034',
-    storageBucket: 'template-app-prod-3a034.appspot.com',
+    apiKey: 'AIzaSyDTtxnrphBRcXdq0oJjemEEE78Z5BHACyo',
+    appId: '1:158898518103:android:ea7d67bfa6f4c022544b12',
+    messagingSenderId: '158898518103',
+    projectId: 'goldenowl-mavental',
+    storageBucket: 'goldenowl-mavental.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBJcmNBow0YS4BVADc-K3aDLjvZW9DUMR8',
-    appId: '1:535789737885:ios:58d9a69f9dfa23bf80c174',
-    messagingSenderId: '535789737885',
-    projectId: 'template-app-prod-3a034',
-    storageBucket: 'template-app-prod-3a034.appspot.com',
+    apiKey: 'AIzaSyBbjnIWoGH8Sa8utPPtfajtJem62j4638o',
+    appId: '1:158898518103:ios:a5c4c4773bf157f1544b12',
+    messagingSenderId: '158898518103',
+    projectId: 'goldenowl-mavental',
+    storageBucket: 'goldenowl-mavental.appspot.com',
     iosClientId:
-        '535789737885-n14bfdlqb726ht8lte1he0b9ilpj3c0i.apps.googleusercontent.com',
+        '158898518103-1m5n0vbiujj5arbrdb8srituad598s0s.apps.googleusercontent.com',
     iosBundleId: 'com.maverick.go.mavental',
   );
 }

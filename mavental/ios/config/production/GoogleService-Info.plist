@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>535789737885-n14bfdlqb726ht8lte1he0b9ilpj3c0i.apps.googleusercontent.com</string>
+	<string>158898518103-1m5n0vbiujj5arbrdb8srituad598s0s.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.535789737885-n14bfdlqb726ht8lte1he0b9ilpj3c0i</string>
+	<string>com.googleusercontent.apps.158898518103-1m5n0vbiujj5arbrdb8srituad598s0s</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBJcmNBow0YS4BVADc-K3aDLjvZW9DUMR8</string>
+	<string>AIzaSyBbjnIWoGH8Sa8utPPtfajtJem62j4638o</string>
 	<key>GCM_SENDER_ID</key>
-	<string>535789737885</string>
+	<string>158898518103</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.maverick.go.mavental</string>
 	<key>PROJECT_ID</key>
-	<string>template-app-prod-3a034</string>
+	<string>goldenowl-mavental</string>
 	<key>STORAGE_BUCKET</key>
-	<string>template-app-prod-3a034.appspot.com</string>
+	<string>goldenowl-mavental.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:535789737885:ios:58d9a69f9dfa23bf80c174</string>
+	<string>1:158898518103:ios:a5c4c4773bf157f1544b12</string>
 </dict>
 </plist>
